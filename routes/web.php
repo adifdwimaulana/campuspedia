@@ -50,3 +50,7 @@ Route::group(['prefix' => 'company'], function () {
   Route::get('/password/reset', 'CompanyAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'CompanyAuth\ResetPasswordController@showResetForm');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
