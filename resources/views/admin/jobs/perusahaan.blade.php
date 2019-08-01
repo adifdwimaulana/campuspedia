@@ -19,17 +19,18 @@
               <div class="example-wrap">
                 {{-- <h4 class="example-title">Basic Form (Form grid)</h4> --}}
                 <div class="example">
-                  <form autocomplete="off">
+                  <form action="{{url('/admin/simpan_perusahaan')}}" method="post" enctype="multipart/form-data" id="add_trans" autocomplete="off">
+                    {{csrf_field()}}
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Nama Perusahaan</label>
-                        <input name="nama_perusahaan" class="form-control" id="nama_perusahaan" type="text" placeholder="Nama Perusahaan" autocomplete="off">
+                        <input name="nama_perusahaan" class="form-control" id="nama_perusahaan" type="text" placeholder="Nama Perusahaan" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="negara">Negara</label>
-                            <select id="negara" name="nama_negara" class="form-control">
+                            <select id="negara" name="negara" class="form-control" required>
                                 <option value="" disabled selected>-- Pilih Negara--</option>
                                 @foreach($negara as $negaras)
                                   <option value="{{$negaras->nama_negara}}">{{$negaras->nama_negara}}</option>
@@ -38,7 +39,7 @@
                       </div>
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="negara">Tipe Industri</label>
-                            <select id="tipe_industri" name="tipe_industri" class="form-control">
+                            <select id="tipe_industri" name="tipe_industri" class="form-control" required>
                                 <option value="" disabled selected>-- Pilih Tipe Industri--</option>
                                 @foreach($tipe_industri as $tipe_industris)
                                   <option value="{{$tipe_industris->nama_industri}}">{{$tipe_industris->nama_industri}}</option>
@@ -48,44 +49,44 @@
                     </div>
                     <div class="row">
                       <div class="form-group col-md-12">
-                          <label class="form-control-label font-weight-bold" for="inputBasicLastName">Visi dan Misi Perusahaan</label>
-                        <textarea class="form-control" placeholder="Visi dan Misi"></textarea>
+                        <label class="form-control-label font-weight-bold" for="inputBasicLastName">Visi dan Misi Perusahaan</label>
+                        <textarea class="form-control" placeholder="Visi dan Misi" name="visi_misi" required></textarea>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-12">
-                          <label class="form-control-label font-weight-bold" for="inputBasicLastName">Deskripsi Perusahaan</label>
-                        <textarea class="form-control" placeholder="Deskripsi Perusahaan"></textarea>
+                        <label class="form-control-label font-weight-bold" for="inputBasicLastName">Deskripsi Perusahaan</label>
+                        <textarea class="form-control" placeholder="Deskripsi Perusahaan" name="deskripsi" required></textarea>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-control-label font-weight-bold" for="inputBasicEmail">Alamat Perusahaan</label>
-                      <input name="alamat" class="form-control" id="alamat" type="text" placeholder="Alamat Perusahaan" autocomplete="off">
+                      <input name="alamat" class="form-control" id="alamat" type="text" placeholder="Alamat Perusahaan" autocomplete="off" required>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Link Website</label>
-                        <input name="website" class="form-control" id="website" type="text" placeholder="Link Website" autocomplete="off">
+                        <input name="website" class="form-control" id="website" type="text" placeholder="Link Website" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Link Twitter</label>
-                        <input name="twitter" class="form-control" id="twitter" type="text" placeholder="Link Twitter" autocomplete="off">
+                        <input name="twitter" class="form-control" id="twitter" type="text" placeholder="Link Twitter" autocomplete="off" required>
                       </div>
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Link LinkedIn</label>
-                        <input name="LinkedIn" class="form-control" id="LinkedIn" type="text" placeholder="Link LinkedIn" autocomplete="off">
+                        <input name="LinkedIn" class="form-control" id="LinkedIn" type="text" placeholder="Link LinkedIn" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Link Facebook</label>
-                        <input name="facebook" class="form-control" id="facebook" type="text" placeholder="Link Facebook" autocomplete="off">
+                        <input name="facebook" class="form-control" id="facebook" type="text" placeholder="Link Facebook" autocomplete="off" required>
                       </div>
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Link Instagram</label>
-                        <input name="instagram" class="form-control" id="instagram" type="text" placeholder="Link Instagram" autocomplete="off">
+                        <input name="instagram" class="form-control" id="instagram" type="text" placeholder="Link Instagram" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="row">
@@ -118,12 +119,12 @@
   </div>
   <!-- End Page -->
 @endsection
-{{-- @section('moreJS')
-<script>
+@section('moreJS')
+{{-- <script>
     $(document).ready(function () {
         $("#negara").select2({
             placeholder: "Pilih Nama Negara"
         });
     });
-</script>
-@endsection --}}
+</script> --}}
+@endsection

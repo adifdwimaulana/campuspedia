@@ -32,7 +32,7 @@ class CreateJobsTable extends Migration
             $table->text('bonus_salary')->nullable();            
             $table->text('jobs_descriptiom')->nullable();            
             $table->string('file_attachment')->nullable();            
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 

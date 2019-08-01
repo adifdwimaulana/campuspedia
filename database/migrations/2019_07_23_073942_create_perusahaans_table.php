@@ -27,7 +27,7 @@ class CreatePerusahaansTable extends Migration
             $table->string('link_linkedin', 100)->nullable();            
             $table->string('link_instagram', 100)->nullable();            
             $table->string('link_twitter', 100)->nullable();            
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 
