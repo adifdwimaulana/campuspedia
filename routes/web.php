@@ -61,3 +61,9 @@ Route::get('/home', 'HomeController@index')->name('home');
   Route::post('/admin/simpan_pekerjaan', 'JobsController@simpan_pekerjaan');
 
 
+// Colleges Route
+  Route::get('/college', 'CollegesController@index');
+  Route::get('admin/college/', 'CollegesController@create');
+  Route::post('admin/college/store', 'CollegesController@store');
+
+
