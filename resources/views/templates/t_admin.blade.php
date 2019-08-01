@@ -55,6 +55,7 @@
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
   <link rel="stylesheet" href="{{asset('assets/back/global/fonts/font-awesome/css/font-awesome.min.css')}}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
 
   <!--[if lt IE 9]>
     <script src="../../global/vendor/html5shiv/html5shiv.min.js"></script>

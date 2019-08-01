@@ -134,11 +134,16 @@
   <!-- End Page -->
 @endsection
 @section('moreJS')
-{{-- <script>
+<script>
     $(document).ready(function () {
         $("#negara").select2({
             placeholder: "Pilih Nama Negara"
         });
     });
-</script> --}}
+    $(document).ready(function () {
+        $("#tipe_industri").select2({
+            placeholder: "Pilih Tipe Industri"
+        });
+    });
+</script>
 @endsection
