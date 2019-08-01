@@ -54,3 +54,10 @@ Route::group(['prefix' => 'company'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+  Route::get('/admin/perusahaan', 'JobsController@perusahaan');
+  Route::post('/admin/simpan_perusahaan', 'JobsController@simpan_perusahaan');
+  Route::get('/admin/pekerjaan', 'JobsController@pekerjaan');
+  Route::post('/admin/simpan_pekerjaan', 'JobsController@simpan_pekerjaan');
+
+
