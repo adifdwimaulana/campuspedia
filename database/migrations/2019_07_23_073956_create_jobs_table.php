@@ -23,7 +23,7 @@ class CreateJobsTable extends Migration
             $table->integer('jumlah_loker');
             $table->string('jobs_functions');            
             $table->string('jobs_roles')->nullable();            
-            $table->string('work_experinece')->nullable();            
+            $table->string('work_experience')->nullable();            
             $table->text('benefit')->nullable();            
             $table->string('minimal_education')->nullable();
             $table->text('skill')->nullable();            

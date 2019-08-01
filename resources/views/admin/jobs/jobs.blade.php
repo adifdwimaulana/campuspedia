@@ -38,7 +38,7 @@
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Job Title</label>
-                        <input name="nama_perusahaan" class="form-control" id="job_title" type="text" placeholder="Job Title" autocomplete="off" required>
+                        <input name="nama_pekerjaan" class="form-control" id="job_title" type="text" placeholder="Job Title" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="row">
@@ -47,7 +47,7 @@
                             <select id="kota" name="kota" class="form-control" required>
                                 <option value="" disabled selected>-- Pilih Kota--</option>
                                 @foreach($kota as $kotas)
-                                  <option value="{{$kotas->nama_kota}}">{{$kotas->nama_kota}} - {{$kotas->nama_negara}}</option>
+                                  <option value="{{$kotas->id}}">{{$kotas->nama_kota}} - {{$kotas->nama_negara}}</option>
                                 @endforeach
                             </select>
                       </div>
@@ -76,7 +76,7 @@
                             <select id="jobs_role" name="jobs_role" class="form-control" required>
                                 <option value="" disabled selected>-- Pilih Tipe Industri--</option>
                                 @foreach($jobs_role as $jobs)
-                                  <option value="{{$jobs->jobs_role}}">{{$jobs->jobs_role}} - {{$jobs->jobs_functions}}</option>
+                                  <option value="{{$jobs->id}}">{{$jobs->jobs_role}} - {{$jobs->jobs_functions}}</option>
                                 @endforeach
                             </select>
                       </div>
@@ -89,12 +89,12 @@
                     </div>
                     <div class="form-group">
                       <label class="form-control-label font-weight-bold" for="inputBasicEmail">Jumlah Loker</label>
-                      <input name="alamat" class="form-control" id="jumlah_loker" type="text" placeholder="Jumlah Loker" autocomplete="off" required>
+                      <input name="jumlah_loker" class="form-control" id="jumlah_loker" type="text" placeholder="Jumlah Loker" autocomplete="off" required>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Work Experience</label>
-                        <input name="website" class="form-control" id="work_experience" type="text" placeholder="Work Experience" autocomplete="off" required>
+                        <input name="work_experience" class="form-control" id="work_experience" type="text" placeholder="Work Experience" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="row">
@@ -147,7 +147,7 @@
                     <div class="row">
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Gaji</label>
-                        <input name="facebook" class="form-control" id="gaji" type="text" placeholder="Gaji" autocomplete="off" required>
+                        <input name="gaji" class="form-control" id="gaji" type="text" placeholder="Gaji" autocomplete="off" required>
                       </div>
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Bonus Salary</label>
