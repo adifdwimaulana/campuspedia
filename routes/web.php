@@ -64,3 +64,9 @@ Route::get('/home', 'HomeController@index')->name('home');
   
 
 
+// Colleges Route
+  Route::get('/college', 'CollegesController@index');
+  Route::get('admin/college/', 'CollegesController@create');
+  Route::post('admin/college/store', 'CollegesController@store');
+
+
