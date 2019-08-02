@@ -25,11 +25,16 @@ class JobsController extends Controller
 
     }
 
+    public function job()
+    {
+        return view('company.jobs.dashboard');
+    }
+    
     public function perusahaan()
     {
     	$negara = Negara::orderBy('nama_negara','asc')->get();
     	$tipe_industri = Type_industri::orderBy('nama_industri','asc')->get();
-    	return view('admin.jobs.perusahaan', compact('negara', 'tipe_industri'));
+    	return view('company.jobs.perusahaan', compact('negara', 'tipe_industri'));
     }
 
     public function simpan_perusahaan(Request $r)
@@ -74,7 +79,7 @@ class JobsController extends Controller
 	        ->orderBy('jobs_roles.jobs_role','asc')
 	        ->get();
     	$tipe_industri = Type_industri::orderBy('nama_industri','asc')->get();
-    	return view('admin.jobs.jobs', compact('kota', 'tipe_industri', 'pendidikan', 'jobs_role'));
+    	return view('company.jobs.jobs', compact('kota', 'tipe_industri', 'pendidikan', 'jobs_role'));
     }
 
     public function simpan_pekerjaan(Request $r)
