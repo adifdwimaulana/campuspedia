@@ -26,9 +26,14 @@
                 </div>
             @endif
         </div>
+        <div class="panel">
+            <div class="panel-body container-fluid">
+              <div class="row row-lg" style="margin: 20px">
       {{-- Content --}}
       @if(count($colleges) > 0)
-        <table class="table table-bordered">
+      
+        <a href="/admin/college/create" class="btn btn-primary">Input Data Kampus</a>
+        <table style="margin-top: 10px" class="table table-bordered">
             <tr>
                 <th>Nama Kampus</th>
                 <th>Alamat Kampus</th>
@@ -52,6 +57,10 @@
             @endforeach
         </table>
       @endif
+      {{ $colleges->links(), ['class' => 'center'] }}
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 @endsection

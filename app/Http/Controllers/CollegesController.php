@@ -13,13 +13,13 @@ class CollegesController extends Controller
 {
     public function index()
     {
-        $colleges = College::all();
+        $colleges = College::orderBy('nama_kampus', 'asc')->paginate(6);
         return view('colleges.index')->with('colleges', $colleges);
     }
 
     public function college() 
     {
-        $colleges = College::orderBy('nama_kampus', 'asc')->get();
+        $colleges = College::orderBy('nama_kampus', 'asc')->paginate(1);
         return view('admin.colleges.college')->with('colleges', $colleges);
     }
 
@@ -106,10 +106,10 @@ class CollegesController extends Controller
         $college->website_kampus = $request->input('website_kampus');
         $college->tipe_kampus = $request->input('tipe_kampus');
         $college->akreditasi_kampus = $request->input('akreditasi_kampus');
-        if($request->hasFile('logo_kampus')
+        if($request->hasFile('logo_kampus'))
         {
-            $college->logo_kampus = $filenameToStore
-        });
+            $college->logo_kampus = $filenameToStore;
+        }
         $college->save();
 
         return redirect('/admin/college')->with('message', 'Kampus '.$college->nama_kampus.' berhasil diedit !');
