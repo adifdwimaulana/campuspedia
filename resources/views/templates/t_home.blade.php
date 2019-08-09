@@ -53,7 +53,7 @@
 
 						<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 							<ul class="navbar-nav nav ml-auto">
-								<li class="nav-item"><a href="#" class="nav-link">Kampus</a>
+								<li class="nav-item"><a href="/college" class="nav-link">Kampus</a>
 								</li>
 
 								<li class="nav-item"><a href="#" class="nav-link">Beasiswa</a>

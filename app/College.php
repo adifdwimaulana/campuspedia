@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Faculty;
 use App\Major;
+use App\Province;
 
 class College extends Model
 {
@@ -16,7 +17,8 @@ class College extends Model
         return $this->hasMany('App\Faculty');
     }
 
-    // public function majors() {
-    //     return $this->hasMany('App\Major');
-    // }
+    public function provinces()
+    {
+        return $this->hasMany('App\Province');
+    }
 }

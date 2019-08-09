@@ -61,11 +61,14 @@ Route::get('/home', 'HomeController@index')->name('home');
   Route::post('/admin/simpan_pekerjaan', 'JobsController@simpan_pekerjaan');
 
 
-// Colleges Route
+// College Route
   Route::get('/college', 'CollegesController@index');
+  Route::get('/college/search', 'CollegesController@search_college');
+// Admin College
   Route::get('admin/college', 'CollegesController@college');
   Route::get('admin/college/create', 'CollegesController@create_college');
   Route::post('admin/college/store', 'CollegesController@store_college');
   Route::get('admin/college/{id}/edit', 'CollegesController@edit_college');
   Route::put('admin/college/{id}', 'CollegesController@update_college');
   Route::get('admin/college/{id}/destroy', 'CollegesController@destroy_college');
+  
