@@ -8,19 +8,22 @@ use Illuminate\Support\Facades\Storage;
 use App\College;
 use App\Faculty;
 use App\Major;
+use App\Province;
 
 class CollegesController extends Controller
 {
     public function index()
     {
         $colleges = College::orderBy('nama_kampus', 'asc')->paginate(6);
-        return view('colleges.index')->with('colleges', $colleges);
+        $provinces = Province::pluck('nama_provinsi');
+
+        return view('colleges.index', compact('colleges', 'provinces'));
     }
 
     public function college() 
     {
-        $colleges = College::orderBy('nama_kampus', 'asc')->paginate(1);
-        return view('admin.colleges.college')->with('colleges', $colleges);
+        $colleges = College::orderBy('nama_kampus', 'asc')->paginate(10);
+        return view('admin.colleges.college', compact('colleges'));
     }
 
     public function create_college()
@@ -72,7 +75,7 @@ class CollegesController extends Controller
     {   
         $college = College::find($id);
 
-        return view('admin.colleges.edit_college')->with('college', $college);
+        return view('admin.colleges.edit_college', compact('college'));
     }
 
     public function update_college(Request $request, $id)
