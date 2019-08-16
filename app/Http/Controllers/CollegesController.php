@@ -22,7 +22,7 @@ class CollegesController extends Controller
 
     public function college() 
     {
-        $colleges = College::orderBy('nama_kampus', 'asc')->paginate(10);
+        $colleges = College::orderBy('nama_kampus', 'asc')->paginate(6);
         return view('admin.colleges.college', compact('colleges'));
     }
 

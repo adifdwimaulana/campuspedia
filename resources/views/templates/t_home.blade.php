@@ -21,6 +21,7 @@
 		<!-- NiceSelect Min CSS -->
 		<link rel="stylesheet" href="{{asset('assets/front/css/nice-select.css')}}">
 		<!-- Style CSS -->
+		<link rel="stylesheet" href="{{asset('assets/front/css/custom.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/front/css/style.css')}}">
 		<!-- Responsive CSS -->
 		<link rel="stylesheet" href="{{asset('assets/front/css/responsive.css')}}">
@@ -33,9 +34,9 @@
 	
 	<body>
 		<!-- Start Preloader Area -->
-        <div class="preloader-area">
+        {{-- <div class="preloader-area">
             <div class="lds-hourglass"></div>
-        </div>
+        </div> --}}
         <!-- End Preloader Area -->
 
 		<!-- Start Navbar Area -->

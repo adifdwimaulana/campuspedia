@@ -28,7 +28,7 @@
         </div>
         <div class="panel">
             <div class="panel-body container-fluid">
-              <div class="row row-lg" style="margin: 20px">
+              <div class="row" style="margin: 20px">
       {{-- Content --}}
       <a href="/admin/college/create" class="btn btn-success">Input Data Kampus</a>
       @if(count($colleges) > 0)
@@ -56,11 +56,16 @@
                 </tr>   
             @endforeach
         </table>
-      @endif
-      {{ $colleges->links(), ['class' => 'center'] }}
+      @endif        
+        </div>
+        <div class="row">
+          <div class="pagination-admin">
+           {{ $colleges->links('pagination::bootstrap-4'), ['style' => 'margin: 0px auto'] }}
+          </div>
         </div>
       </div>
     </div>
+
     </div>
   </div>
 @endsection

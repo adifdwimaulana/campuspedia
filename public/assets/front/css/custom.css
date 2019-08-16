@@ -1,0 +1,46 @@
+.filter-area {
+  padding: 50px 0px;
+}
+
+.filter-area .section-title h2 {
+  color: #5a6063;
+}
+
+.single-project .project-content {
+  background-color: #61a7ed;
+  border-radius: 3px;
+}
+
+.single-project .project-content a span {
+  display: block;
+  color: #fff;
+  text-align: center;
+}
+
+.single-project .project-content hr {
+  border-top: 2px solid #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.single-project .project-content .bottom-card {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.single-project .project-content .bottom-card .blok-1 {
+  display: inline;
+  float: left;
+}
+
+.single-project .project-content .bottom-card .blok-2 {
+  display: inline;
+  float: right;
+}
+
+.single-project .project-image {
+  position: relative;
+  padding: 20px 0px;
+}
