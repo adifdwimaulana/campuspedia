@@ -1,99 +1,37 @@
 @extends('templates.t_home')
 @section('content')
-        <div class="home-slides startup-home">
-			<div class="main-banner startup-bg1">
-				<div class="d-table">
-					<div class="d-table-cell">
-						<div class="container">
-							<div class="row">
-								<div class="row h-100 justify-content-center align-items-center">
-								<div class="col-lg-6 col-md-12">
-									<div class="hero-content">
-										<h1><center> Komunitas Online Mahaiswa dan Palajar</center></h1>
-										<p><center>Sumber inspirasi pelajar dan mahasiswa. Untuk kemajuan dunia pendidikan Indonesia.</center></p>
-										
-										
-									</div>
+	<!-- Start Banner Section -->
+	<div class="startup-home">
+		<div class="main-banner">
+			<div class="d-table">
+				<div class="d-table-cell">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="row h-100 justify-content-center align-items-center">
+							<div class="col-lg-6 col-md-12">
+								<div class="hero-content">
+									<h1>Komunitas Online Mahasiswa dan Palajar</h1>
+									<p>Sumber inspirasi pelajar dan mahasiswa. Untuk kemajuan dunia pendidikan Indonesia.</p>
 								</div>
-								</div>
-								
 							</div>
+							</div>
+							
 						</div>
 					</div>
 				</div>
-
-				<div class="bg-gray shape-1"></div>
-				<div class="shape1"><img src="{{asset('assets/front/img/shape1.png')}}" alt="img"></div>
-				<div class="shape2"><img src="{{asset('assets/front/img/shape2.png')}}" alt="img"></div>
-				<div class="shape3"><img src="{{asset('assets/front/img/shape3.png')}}" alt="img"></div>
-				<div class="shape6"><img src="{{asset('assets/front/img/shape6.png')}}" alt="img"></div>
-				<div class="shape8 rotateme"><img src="{{asset('assets/front/img/shape8.svg')}}" alt="shape"></div>
-				<div class="shape9"><img src="{{asset('assets/front/img/shape9.svg')}}" alt="shape"></div>
 			</div>
 
-			<div class="main-banner startup-bg2">
-				<div class="d-table">
-					<div class="d-table-cell">
-						<div class="container">
-							<div class="row">
-								<div class="row h-100 justify-content-center align-items-center">
-								<div class="col-lg-6 col-md-12">
-									<div class="hero-content">
-										<h1><center> Komunitas Online Mahaiswa dan Palajar</center></h1>
-										<p><center>Sumber inspirasi pelajar dan mahasiswa. Untuk kemajuan dunia pendidikan Indonesia.</center></p>
-										
-										
-									</div>
-								</div>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="bg-gray shape-1"></div>
-				<div class="shape1"><img src="{{asset('assets/front/img/shape1.png')}}" alt="img"></div>
-				<div class="shape2"><img src="{{asset('assets/front/img/shape2.png')}}" alt="img"></div>
-				<div class="shape3"><img src="{{asset('assets/front/img/shape3.png')}}" alt="img"></div>
-				<div class="shape6"><img src="{{asset('assets/front/img/shape6.png')}}" alt="img"></div>
-				<div class="shape8 rotateme"><img src="{{asset('assets/front/img/shape8.svg')}}" alt="shape"></div>
-				<div class="shape9"><img src="{{asset('assets/front/img/shape9.svg')}}" alt="shape"></div>
-			</div>
-
-			<div class="main-banner startup-bg3">
-				<div class="d-table">
-					<div class="d-table-cell">
-						<div class="container">
-							<div class="row">
-								<div class="row h-100 justify-content-center align-items-center">
-								<div class="col-lg-6 col-md-12">
-									<div class="hero-content">
-
-										<h1><center> Komunitas Online Mahaiswa dan Palajar</center></h1>
-										<p><center>Sumber inspirasi pelajar dan mahasiswa. Untuk kemajuan dunia pendidikan Indonesia.</center></p>
-										
-										
-									</div>
-								</div>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="bg-gray shape-1"></div>
-				<div class="shape1"><img src="{{asset('assets/front/img/shape1.png')}}" alt="img"></div>
-				<div class="shape2"><img src="{{asset('assets/front/img/shape2.png')}}" alt="img"></div>
-				<div class="shape3"><img src="{{asset('assets/front/img/shape3.png')}}" alt="img"></div>
-				<div class="shape6"><img src="{{asset('assets/front/img/shape6.png')}}" alt="img"></div>
-				<div class="shape8 rotateme"><img src="{{asset('assets/front/img/shape8.svg')}}" alt="shape"></div>
-				<div class="shape9"><img src="{{asset('assets/front/img/shape9.svg')}}" alt="shape"></div>
-			</div>
+			<div class="bg-gray shape-1"></div>
+			<div class="shape1"><img src="{{asset('assets/front/img/shape1.png')}}" alt="img"></div>
+			<div class="shape2"><img src="{{asset('assets/front/img/shape2.png')}}" alt="img"></div>
+			<div class="shape3"><img src="{{asset('assets/front/img/shape3.png')}}" alt="img"></div>
+			<div class="shape6"><img src="{{asset('assets/front/img/shape6.png')}}" alt="img"></div>
+			<div class="shape8 rotateme"><img src="{{asset('assets/front/img/shape8.svg')}}" alt="shape"></div>
+			<div class="shape9"><img src="{{asset('assets/front/img/shape9.svg')}}" alt="shape"></div>
 		</div>
-        <!-- End Startup Main Banner -->
-        
+	</div>
+	   <!-- End Startup Main Banner -->
+
 		<!-- Start fitur Area -->
 		<section class="filter-area bg-light shadow rounded">
 			<div class="container-fluid">

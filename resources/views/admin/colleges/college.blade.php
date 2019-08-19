@@ -58,11 +58,6 @@
         </table>
       @endif        
         </div>
-        <div class="row">
-          <div class="pagination-admin">
-           {{ $colleges->links('pagination::bootstrap-4'), ['style' => 'margin: 0px auto'] }}
-          </div>
-        </div>
       </div>
     </div>
 
