@@ -25,6 +25,8 @@
 		<!-- Responsive CSS -->
 		<link rel="stylesheet" href="{{asset('assets/front/css/responsive.css')}}">
 		
+		<link rel="stylesheet" href="{{asset('assets/front/css/custom.css')}}">
+		
 		<title>Crake - Startup Agency Landing Page</title>
 
 		<link rel="icon" type="image/png" href="{{asset('assets/front/img/favicon.png')}}">
@@ -33,9 +35,9 @@
 	
 	<body>
 		<!-- Start Preloader Area -->
-        <div class="preloader-area">
+        {{-- <div class="preloader-area">
             <div class="lds-hourglass"></div>
-        </div>
+        </div> --}}
         <!-- End Preloader Area -->
 
 		<!-- Start Navbar Area -->

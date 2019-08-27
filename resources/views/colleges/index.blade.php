@@ -1,103 +1,42 @@
 @extends('templates.t_home')
 @section('content')
-        <div class="home-slides startup-home">
-			<div class="main-banner startup-bg1">
-				<div class="d-table">
-					<div class="d-table-cell">
-						<div class="container">
-							<div class="row">
-								<div class="row h-100 justify-content-center align-items-center">
-								<div class="col-lg-6 col-md-12">
-									<div class="hero-content">
-										<h1><center> Komunitas Online Mahaiswa dan Palajar</center></h1>
-										<p><center>Sumber inspirasi pelajar dan mahasiswa. Untuk kemajuan dunia pendidikan Indonesia.</center></p>
-										
-										
-									</div>
+	<!-- Start Banner Section -->
+	<div class="startup-home">
+		<div class="main-banner">
+			<div class="d-table">
+				<div class="d-table-cell">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="row h-100 justify-content-center align-items-center">
+							<div class="col-lg-6 col-md-12">
+								<div class="hero-content">
+									<h1>Komunitas Online Mahasiswa dan Palajar</h1>
+									<p>Sumber inspirasi pelajar dan mahasiswa. Untuk kemajuan dunia pendidikan Indonesia.</p>
 								</div>
-								</div>
-								
 							</div>
+							</div>
+							
 						</div>
 					</div>
 				</div>
-
-				<div class="bg-gray shape-1"></div>
-				<div class="shape1"><img src="{{asset('assets/front/img/shape1.png')}}" alt="img"></div>
-				<div class="shape2"><img src="{{asset('assets/front/img/shape2.png')}}" alt="img"></div>
-				<div class="shape3"><img src="{{asset('assets/front/img/shape3.png')}}" alt="img"></div>
-				<div class="shape6"><img src="{{asset('assets/front/img/shape6.png')}}" alt="img"></div>
-				<div class="shape8 rotateme"><img src="{{asset('assets/front/img/shape8.svg')}}" alt="shape"></div>
-				<div class="shape9"><img src="{{asset('assets/front/img/shape9.svg')}}" alt="shape"></div>
 			</div>
 
-			<div class="main-banner startup-bg2">
-				<div class="d-table">
-					<div class="d-table-cell">
-						<div class="container">
-							<div class="row">
-								<div class="row h-100 justify-content-center align-items-center">
-								<div class="col-lg-6 col-md-12">
-									<div class="hero-content">
-										<h1><center> Komunitas Online Mahaiswa dan Palajar</center></h1>
-										<p><center>Sumber inspirasi pelajar dan mahasiswa. Untuk kemajuan dunia pendidikan Indonesia.</center></p>
-										
-										
-									</div>
-								</div>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="bg-gray shape-1"></div>
-				<div class="shape1"><img src="{{asset('assets/front/img/shape1.png')}}" alt="img"></div>
-				<div class="shape2"><img src="{{asset('assets/front/img/shape2.png')}}" alt="img"></div>
-				<div class="shape3"><img src="{{asset('assets/front/img/shape3.png')}}" alt="img"></div>
-				<div class="shape6"><img src="{{asset('assets/front/img/shape6.png')}}" alt="img"></div>
-				<div class="shape8 rotateme"><img src="{{asset('assets/front/img/shape8.svg')}}" alt="shape"></div>
-				<div class="shape9"><img src="{{asset('assets/front/img/shape9.svg')}}" alt="shape"></div>
-			</div>
-
-			<div class="main-banner startup-bg3">
-				<div class="d-table">
-					<div class="d-table-cell">
-						<div class="container">
-							<div class="row">
-								<div class="row h-100 justify-content-center align-items-center">
-								<div class="col-lg-6 col-md-12">
-									<div class="hero-content">
-
-										<h1><center> Komunitas Online Mahaiswa dan Palajar</center></h1>
-										<p><center>Sumber inspirasi pelajar dan mahasiswa. Untuk kemajuan dunia pendidikan Indonesia.</center></p>
-										
-										
-									</div>
-								</div>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="bg-gray shape-1"></div>
-				<div class="shape1"><img src="{{asset('assets/front/img/shape1.png')}}" alt="img"></div>
-				<div class="shape2"><img src="{{asset('assets/front/img/shape2.png')}}" alt="img"></div>
-				<div class="shape3"><img src="{{asset('assets/front/img/shape3.png')}}" alt="img"></div>
-				<div class="shape6"><img src="{{asset('assets/front/img/shape6.png')}}" alt="img"></div>
-				<div class="shape8 rotateme"><img src="{{asset('assets/front/img/shape8.svg')}}" alt="shape"></div>
-				<div class="shape9"><img src="{{asset('assets/front/img/shape9.svg')}}" alt="shape"></div>
-			</div>
+			<div class="bg-gray shape-1"></div>
+			<div class="shape1"><img src="{{asset('assets/front/img/shape1.png')}}" alt="img"></div>
+			<div class="shape2"><img src="{{asset('assets/front/img/shape2.png')}}" alt="img"></div>
+			<div class="shape3"><img src="{{asset('assets/front/img/shape3.png')}}" alt="img"></div>
+			<div class="shape6"><img src="{{asset('assets/front/img/shape6.png')}}" alt="img"></div>
+			<div class="shape8 rotateme"><img src="{{asset('assets/front/img/shape8.svg')}}" alt="shape"></div>
+			<div class="shape9"><img src="{{asset('assets/front/img/shape9.svg')}}" alt="shape"></div>
 		</div>
-        <!-- End Startup Main Banner -->
-        
+	</div>
+	   <!-- End Startup Main Banner -->
+
 		<!-- Start fitur Area -->
-		<section class="project-area ptb-100 bg-light">
+		<section class="filter-area bg-light shadow rounded">
+			<div class="container-fluid">
 			<div class="section-title">
-				<h2>Kampus</h2>					
+				<h2>FILTER</h2>					
 			</div>
 			
 			{{-- Start Search Section --}}
@@ -113,7 +52,7 @@
 					{{ Form::text('jurusan', '', ['class' => 'form-control', 'placeholder' => 'Jurusan']) }}
 				</div>
 				<div class="col-md-2 form-group">
-					{{ Form::select('tipe_kampus', ['Negeri' => 'Negeri', 'Swasta' => 'Swasta', 'Kedinasan' => 'Kedinasan'], null, ['class' => 'form-control', 'placeholder' => 'Negeri / Swasta / Kedinasan']) }}
+					{{ Form::select('tipe_kampus', ['Negeri' => 'Negeri', 'Swasta' => 'Swasta', 'Kedinasan' => 'Kedinasan'], null, ['class' => 'form-control', 'placeholder' => 'Negeri / Swasta']) }}
 				</div>
 				<div class="col-md-2 form-group center">
 					{{ Form::submit('Cari', ['class' => 'btn btn-primary form-group']) }}
@@ -121,26 +60,44 @@
 				{!! Form::close() !!}
                 {{-- End Search Section  --}}
 			</div>
+		</div>
 		</section>
 		<!-- End Search Area -->
-		<section class="college-card ptb-100">
+		
+		<!-- Start Card Area -->
+		<section class="project-area ptb-100">
 			<div class="container">
-				<div class="row justify-content-center">
+                <div class="row justify-content-center">
 					@if(count($colleges) > 0)
-						@foreach($colleges as $college)
-							<div class="col-md-4">
-								<div class="card" style="width: 20rem; height: 20rem; margin-top: 20px;">
-									<img src="/storage/public/logo_kampus/{{ $college->logo_kampus }}" class="card-img-top" style="width: 80px; height: 80px;">
-									<div class="card-body">
-										<h5 class="card-title">{{ $college->nama_kampus }}</h5>
-										<p class="card-text">{{ $college->alamat_kampus }}</p>
-										<a href="{{ $college->website_kampus }}" class="btn btn-primary">Link Kampus</a>
+						@foreach ($colleges as $college)
+							<div class="col-lg-4 col-md-6">
+								<div class="single-project">
+									<div class="project-image">
+										<img src="/storage/public/logo_kampus/{{ $college->logo_kampus }}" alt="logo_kampus" style="width: 200px; height: 200px;">
+										{{-- <a href="/storage/public/logo_kampus/{{ $college->logo_kampus }}" class="popup-btn"><i class="icofont-plus"></i></a> --}}
 									</div>
-								</div>	
+		
+									<div class="project-content">
+										<a href="#"><span>{{ $college->nama_kampus }}</span></a>
+										<hr>
+										<div class="bottom-card">
+											<div class="blok-1">
+												Tipe : {{ $college->tipe_kampus }}
+											</div>
+											<div class="blok-2">
+												Akreditas : {{ $college->akreditasi_kampus }}
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						@endforeach
-					@endif		
+					@endif
+				</div>
+				<div class="row justify-content-center">
+					{{ $colleges->links('pagination::bootstrap-4') }}
 				</div>
 			</div>
-		</section>		
+		</section>
+		<!-- End Card Area -->
 @endsection
