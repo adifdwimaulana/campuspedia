@@ -35,6 +35,11 @@ Route::group(['prefix' => 'admin'], function () {
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
+
+  Route::get('/kategori', 'KarirController@kategori');
+  Route::post('/kategori/store', 'KarirController@store_kategori');
+  Route::get('/karir', 'KarirController@karir');
+  Route::post('/karir/store', 'KarirController@store_karir');
 });
 
 Route::group(['prefix' => 'company'], function () {
