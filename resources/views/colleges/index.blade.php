@@ -5,10 +5,10 @@
 		<div class="main-banner">
 			<div class="d-table">
 				<div class="d-table-cell">
-					<div class="container-fluid">
+					<div class="container">
 						<div class="row">
-							<div class="row h-100 justify-content-center align-items-center">
-							<div class="col-lg-6 col-md-12">
+							<div class="row h-100 align-items-center">
+							<div class="col-lg-6 col-md-6">
 								<div class="hero-content">
 									<h1>Komunitas Online Mahasiswa dan Palajar</h1>
 									<p>Sumber inspirasi pelajar dan mahasiswa. Untuk kemajuan dunia pendidikan Indonesia.</p>

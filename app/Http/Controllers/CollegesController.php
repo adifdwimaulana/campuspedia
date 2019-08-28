@@ -131,4 +131,9 @@ class CollegesController extends Controller
 
         return redirect('/admin/college')->with('message', 'Kampus '.$college->nama_kampus.' berhasil dihapus !');
     }
+
+    public function faculty()
+    {
+        return view('admin.colleges.faculty');
+    }
 }
