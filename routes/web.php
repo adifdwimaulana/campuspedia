@@ -40,6 +40,13 @@ Route::group(['prefix' => 'admin'], function () {
   Route::post('/kategori/store', 'KarirController@store_kategori');
   Route::get('/karir', 'KarirController@karir');
   Route::post('/karir/store', 'KarirController@store_karir');
+  
+  Route::get('/college', 'CollegesController@college');
+  Route::get('/college/create', 'CollegesController@create_college');
+  Route::post('/college/store', 'CollegesController@store_college');
+  Route::get('/college/{id}/edit', 'CollegesController@edit_college');
+  Route::put('/college/{id}', 'CollegesController@update_college');
+  Route::get('/college/{id}/destroy', 'CollegesController@destroy_college');
 });
 
 Route::group(['prefix' => 'company'], function () {
@@ -69,3 +76,6 @@ Route::get('/home', 'HomeController@index')->name('home');
   
 
 
+// College Route
+  Route::get('/college', 'CollegesController@index');
+  Route::get('/college/search', 'CollegesController@search_college');
