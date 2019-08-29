@@ -1,4 +1,4 @@
-@extends('templates.t_admin')
+@extends('templates.t_company')
 @section('content')
 <div class="page">
   <div class="page-header">

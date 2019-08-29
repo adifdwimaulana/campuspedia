@@ -1,4 +1,4 @@
-@extends('templates.t_admin')
+@extends('templates.t_company')
 @section('content')
   <div class="page">
     <div class="page-header">
@@ -33,7 +33,7 @@
               <div class="example-wrap">
                 {{-- <h4 class="example-title">Basic Form (Form grid)</h4> --}}
                 <div class="example">
-                  <form action="{{url('/admin/simpan_pekerjaan')}}" method="post" enctype="multipart/form-data" id="add_trans" autocomplete="off">
+                  <form action="{{url('/company/simpan_pekerjaan')}}" method="post" enctype="multipart/form-data" id="add_trans" autocomplete="off">
                     {{csrf_field()}}
                     <div class="row">
                       <div class="form-group col-md-12">
@@ -84,7 +84,7 @@
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Job Description</label>
-                        <textarea class="form-control" placeholder="deskripsi" name="deskripsi" required></textarea>
+                        <textarea class="form-control" placeholder="deskripsi" name="deskripsi" id="deskripsi" required></textarea>
                       </div>
                     </div>
                     <div class="form-group">
@@ -94,25 +94,26 @@
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Work Experience</label>
-                        <input name="work_experience" class="form-control" id="work_experience" type="text" placeholder="Work Experience" autocomplete="off" required>
+                        <textarea class="form-control" placeholder="deskripsi" name="work_experience" id="work_experience" required></textarea>
+                        {{-- <input name="work_experience" class="form-control" id="work_experience" type="text" placeholder="Work Experience" autocomplete="off" required> --}}
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Benefit</label>
-                        <textarea class="form-control" placeholder="Benefit" name="benefit" required></textarea>
+                        <textarea class="form-control" placeholder="Benefit" name="benefit" id="benefit" required></textarea>
                       </div>
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Job Description</label>
-                        <textarea class="form-control" placeholder="Job Description" name="deskripsi" required></textarea>
+                        <textarea class="form-control" placeholder="Job Description" name="deskripsi" id="deskripsi" required></textarea>
                       </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Skill</label>
-                        <textarea class="form-control" placeholder="Skill" name="skill" required></textarea>
+                        <textarea class="form-control" placeholder="Skill" name="skill" id="skill" required></textarea>
                       </div>
                     </div>
                     <div class="row">
@@ -183,6 +184,37 @@
   <!-- End Page -->
 @endsection
 @section('moreJS')
+
+<script src="{{asset('assets/ckeditor_standard/ckeditor.js')}}"></script>
+<script>
+  var konten = document.getElementById("skill");
+    CKEDITOR.replace(konten,{
+    language:'en-gb'
+  });
+  CKEDITOR.config.allowedContent = true;
+</script>
+<script>
+  var konten = document.getElementById("deskripsi");
+    CKEDITOR.replace(konten,{
+    language:'en-gb'
+  });
+  CKEDITOR.config.allowedContent = true;
+</script>
+<script>
+  var konten = document.getElementById("benefit");
+    CKEDITOR.replace(konten,{
+    language:'en-gb'
+  });
+  CKEDITOR.config.allowedContent = true;
+</script>
+<script>
+  var konten = document.getElementById("work_experience");
+    CKEDITOR.replace(konten,{
+    language:'en-gb'
+  });
+  CKEDITOR.config.allowedContent = true;
+</script>
+
 <script>
     $(document).ready(function () {
         $("#kota").select2({

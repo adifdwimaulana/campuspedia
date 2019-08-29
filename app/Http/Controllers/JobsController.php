@@ -99,12 +99,12 @@ class JobsController extends Controller
 
         $post = new Job;
         $post->job_title = $r->input('nama_pekerjaan');
-        $post->kota = $kota;
-        $post->negara = $negara;
+        $post->kota = $kota->nama_kota;
+        $post->negara = $negara->nama_negara;
         $post->tipe_pekerjaan = $r->input('tipe_industri');
         $post->minimal_education = $r->input('minimal_education');
-        $post->jobs_roles = $jobs_role;
-        $post->jobs_functions = $jobs_functions;
+        $post->jobs_roles = $jobs_role->jobs_role;
+        $post->jobs_functions = $jobs_functions->jobs_functions;
         $post->jobs_descriptiom = $r->input('deskripsi');
         $post->work_experience = $r->input('work_experience');
         $post->jumlah_loker = $r->input('jumlah_loker');

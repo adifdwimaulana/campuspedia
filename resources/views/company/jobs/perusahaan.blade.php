@@ -1,4 +1,4 @@
-@extends('templates.t_admin')
+@extends('templates.t_company')
 @section('content')
   <div class="page">
     <div class="page-header">
@@ -33,7 +33,7 @@
               <div class="example-wrap">
                 {{-- <h4 class="example-title">Basic Form (Form grid)</h4> --}}
                 <div class="example">
-                  <form action="{{url('/admin/simpan_perusahaan')}}" method="post" enctype="multipart/form-data" id="add_trans" autocomplete="off">
+                  <form action="{{url('/comapany/simpan_perusahaan')}}" method="post" enctype="multipart/form-data" id="add_trans" autocomplete="off">
                     {{csrf_field()}}
                     <div class="row">
                       <div class="form-group col-md-12">
@@ -64,13 +64,13 @@
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Visi dan Misi Perusahaan</label>
-                        <textarea class="form-control" placeholder="Visi dan Misi" name="visi_misi" required></textarea>
+                        <textarea class="form-control" placeholder="Visi dan Misi" name="visi_misi" id="visi_misi" required></textarea>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Deskripsi Perusahaan</label>
-                        <textarea class="form-control" placeholder="Deskripsi Perusahaan" name="deskripsi" required></textarea>
+                        <textarea class="form-control" placeholder="Deskripsi Perusahaan" name="deskripsi" id="deskripsi" required></textarea>
                       </div>
                     </div>
                     <div class="form-group">
@@ -134,6 +134,22 @@
   <!-- End Page -->
 @endsection
 @section('moreJS')
+<script src="{{asset('assets/ckeditor_standard/ckeditor.js')}}"></script>
+<script>
+  var konten = document.getElementById("visi_misi");
+    CKEDITOR.replace(konten,{
+    language:'en-gb'
+  });
+  CKEDITOR.config.allowedContent = true;
+</script>
+<script>
+  var konten = document.getElementById("deskripsi");
+    CKEDITOR.replace(konten,{
+    language:'en-gb'
+  });
+  CKEDITOR.config.allowedContent = true;
+</script>
+
 <script>
     $(document).ready(function () {
         $("#negara").select2({
