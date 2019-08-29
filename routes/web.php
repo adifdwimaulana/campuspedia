@@ -65,6 +65,7 @@ Route::group(['prefix' => 'company'], function () {
   Route::get('/perusahaan', 'JobsController@perusahaan');
   Route::get('/job', 'JobsController@job');
   Route::post('/simpan_perusahaan', 'JobsController@simpan_perusahaan');
+  Route::get('/view_all_perusahaan', 'JobsController@view_all_perusahaan');
   Route::get('/pekerjaan', 'JobsController@pekerjaan');
   Route::post('/simpan_pekerjaan', 'JobsController@simpan_pekerjaan');
 });

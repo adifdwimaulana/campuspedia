@@ -120,4 +120,10 @@ class JobsController extends Controller
         $post->save();
         return Redirect::back()->with('message','Lowongan Pekerjaan '.$post->job_title.' berhasil ditambahkan');
     }
+
+    public function view_all_perusahaan()
+    {
+        $perusahaan = Perusahaan::all();
+        return view('company.jobs.all_perusahaan', compact('perusahaan'));
+    }
 }

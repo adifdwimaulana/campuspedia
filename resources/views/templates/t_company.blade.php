@@ -378,6 +378,11 @@
                   </a>
                 </li>
                 <li class="site-menu-item">
+                  <a class="animsition-link" href="{{URL::to('/company/view_all_perusahaan')}}">
+                    <span class="site-menu-title">List Perusahaan</span>
+                  </a>
+                </li>
+                <li class="site-menu-item">
                   <a class="animsition-link" href="{{URL::to('/admin/list_group')}}">
                     <span class="site-menu-title">Group Aktif</span>
                   </a>
@@ -396,6 +401,11 @@
                 <li class="site-menu-item">
                   <a class="animsition-link" href="{{URL::to('/company/job')}}">
                     <span class="site-menu-title">Input Pekerjaan</span>
+                  </a>
+                </li>
+                <li class="site-menu-item">
+                  <a class="animsition-link" href="{{URL::to('/company/view_all_perusahaan')}}">
+                    <span class="site-menu-title">List Pekerjaan</span>
                   </a>
                 </li>
                 <li class="site-menu-item">

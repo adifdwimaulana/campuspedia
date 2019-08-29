@@ -33,7 +33,7 @@
               <div class="example-wrap">
                 {{-- <h4 class="example-title">Basic Form (Form grid)</h4> --}}
                 <div class="example">
-                  <form action="{{url('/comapany/simpan_perusahaan')}}" method="post" enctype="multipart/form-data" id="add_trans" autocomplete="off">
+                  <form action="{{url('/company/simpan_perusahaan')}}" method="post" enctype="multipart/form-data" id="add_trans" autocomplete="off">
                     {{csrf_field()}}
                     <div class="row">
                       <div class="form-group col-md-12">
