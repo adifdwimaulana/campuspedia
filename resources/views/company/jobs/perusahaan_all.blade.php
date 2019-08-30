@@ -65,9 +65,9 @@
                   <td>{{ $perusahaans->tipe_industri }}</td>
                   <td>
                     <span>
-                      <button class="btn btn-block btn-success" type="button">Lihat</button>
-                      <button class="btn btn-block btn-warning" type="button">Edit</button>
-                      <button class="btn btn-block btn-danger" type="button">Hapus</button>
+                      <a class="mb-2" href="{{url('/company/lihat_detail_perusahaan/'.$perusahaans->id)}}"><button class="btn btn-success" type="button">Lihat</button></a>
+                      <a class="mb-2" href="{{url('/company/edit_perusahaan/'.$perusahaans->id)}}"><button class="btn btn-warning" type="button">Edit</button></a>
+                      <a class="mb-2" href=""><button class="btn btn-danger" type="button">Hapus</button></a>
                     </span>
                   </td>
                 </tr>

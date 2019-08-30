@@ -65,6 +65,60 @@ class JobsController extends Controller
         return Redirect::back()->with('message','Perusahaan '.$post->nama_perusahaan.' berhasil ditambahkan');
     }
 
+    public function view_all_perusahaan()
+    {
+        $perusahaan = Perusahaan::all();
+        return view('company.jobs.perusahaan_all', compact('perusahaan'));
+    }
+
+    public function show_perusahaan($id)
+    {
+        $perusahaan = Perusahaan::find($id);
+        dd($perusahaan); return;
+    }
+
+    public function edit_perusahaan($id)
+    {
+        $perusahaan = Perusahaan::find($id);
+        $negara = Negara::orderBy('nama_negara','asc')->get();
+        $tipe_industri = Type_industri::orderBy('nama_industri','asc')->get();
+        return view('company.jobs.perusahaan_edit', compact('perusahaan','negara','tipe_industri'));
+    }
+
+    public function post_edit_perusahaan(Request $r)
+    {
+        dd($r); return;
+        $validator = Validator::make($r->all(), [
+            // 'nama_perusahaan' => 'required',
+            // 'deskripsi' => 'required',
+        ]);
+        if($validator->fails()) {
+            return Redirect::back()->withInput()->withErrors($validator->messages());
+        }
+
+        $post = perusahaan::find($r->id);
+        $post->job_title = $r->input('nama_pekerjaan');
+        $post->kota = $kota->nama_kota;
+        $post->negara = $negara->nama_negara;
+        $post->tipe_pekerjaan = $r->input('tipe_industri');
+        $post->minimal_education = $r->input('minimal_education');
+        $post->jobs_roles = $jobs_role->jobs_role;
+        $post->jobs_functions = $jobs_functions->jobs_functions;
+        $post->jobs_descriptiom = $r->input('deskripsi');
+        $post->work_experience = $r->input('work_experience');
+        $post->jumlah_loker = $r->input('jumlah_loker');
+        $post->benefit = $r->input('benefit');
+        $post->skill = $r->input('skill');
+        $post->remote= $r->input('remote');
+        $post->gaji_tampil= $r->input('gaji_tampil');
+        $post->gaji= $r->input('gaji');
+        $post->bonus_salary= $r->input('bonus_salary');
+        if ($r->file('file_attachment')) {
+            $post->file_attachment = $r->file('file_attachment')->store('file_attachment');   
+        }
+        $post->save();
+    }
+
     public function pekerjaan()
     {
     	$kota = DB::table('kotas')
@@ -119,11 +173,5 @@ class JobsController extends Controller
         }
         $post->save();
         return Redirect::back()->with('message','Lowongan Pekerjaan '.$post->job_title.' berhasil ditambahkan');
-    }
-
-    public function view_all_perusahaan()
-    {
-        $perusahaan = Perusahaan::all();
-        return view('company.jobs.all_perusahaan', compact('perusahaan'));
     }
 }

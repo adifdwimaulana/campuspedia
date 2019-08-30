@@ -62,12 +62,17 @@ Route::group(['prefix' => 'company'], function () {
   Route::get('/password/reset', 'CompanyAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'CompanyAuth\ResetPasswordController@showResetForm');
 
+
   Route::get('/perusahaan', 'JobsController@perusahaan');
-  Route::get('/job', 'JobsController@job');
   Route::post('/simpan_perusahaan', 'JobsController@simpan_perusahaan');
   Route::get('/view_all_perusahaan', 'JobsController@view_all_perusahaan');
+  Route::get('/lihat_detail_perusahaan/{id}', 'JobsController@show_perusahaan');
+  Route::get('/edit_perusahaan/{id}', 'JobsController@edit_perusahaan');
+  Route::post('/edit_perusahaan', 'JobsController@post_edit_perusahaan');
+
+  Route::get('/job', 'JobsController@job');
   Route::get('/pekerjaan', 'JobsController@pekerjaan');
-  Route::post('/simpan_pekerjaan', 'JobsController@simpan_pekerjaan');
+  Route::post('/simpan_pekerjaan', 'JobsController@simpan_pekerjaan'); 
 });
 
 Auth::routes();
