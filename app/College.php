@@ -13,7 +13,8 @@ class College extends Model
     public $primaryKey = 'id';
     public $timestamps = true;
 
-    public function faculties() {
+    public function faculties() 
+    {
         return $this->hasMany('App\Faculty');
     }
 

@@ -36,14 +36,21 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
 
+  // College Route
   Route::get('/college', 'CollegesController@college');
   Route::get('/college/create', 'CollegesController@create_college');
+  Route::get('/college/{id}', 'CollegesController@show_college');
   Route::post('/college/store', 'CollegesController@store_college');
-  Route::get('/college/{id}/edit', 'CollegesController@edit_college');
+  Route::get('/college/edit/{id}', 'CollegesController@edit_college');
   Route::put('/college/{id}', 'CollegesController@update_college');
-  Route::get('/college/{id}/destroy', 'CollegesController@destroy_college');
+  Route::get('/college/destroy/{id}', 'CollegesController@destroy_college');
 
   Route::get('/faculty', 'CollegesController@faculty');
+  Route::get('/faculty/create', 'CollegesController@create_faculty');
+  Route::post('/faculty/store', 'CollegesController@store_faculty');
+  Route::get('/faculty/{id}/edit', 'CollegesControler@edit_faculty');
+  Route::put('/faculty/{id}', 'CollegesController@update_faculty');
+  Route::get('/faculty/{id}/destroy', 'CollegesController@destroy_faculty');
 });
 
 Route::group(['prefix' => 'company'], function () {
@@ -72,4 +79,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // College Route
   Route::get('/college', 'CollegesController@index');
+  Route::get('/college/{id}', 'CollegesController@show_college');
   Route::get('/college/search', 'CollegesController@search_college');
