@@ -73,12 +73,11 @@
 							<div class="col-lg-4 col-md-6">
 								<div class="single-project">
 									<div class="project-image">
-										<img src="/storage/public/logo_kampus/{{ $college->logo_kampus }}" alt="logo_kampus" style="width: 200px; height: 200px;">
-										{{-- <a href="/storage/public/logo_kampus/{{ $college->logo_kampus }}" class="popup-btn"><i class="icofont-plus"></i></a> --}}
+										<img src="{{ asset('storage/public/logo_kampus/'.$college->logo_kampus.'') }}" alt="logo_kampus" style="width: 200px; height: 200px;">
 									</div>
 		
 									<div class="project-content">
-										<a href="#"><span>{{ $college->nama_kampus }}</span></a>
+										<a href="{{ url('college/'.$college->id.'') }}"><span>{{ $college->nama_kampus }}</span></a>
 										<hr>
 										<div class="bottom-card">
 											<div class="blok-1">

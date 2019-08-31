@@ -30,7 +30,7 @@
             <div class="panel-body container-fluid">
               <div class="row" style="margin: 20px">
       {{-- Content --}}
-      <a href="/admin/college/create" class="btn btn-success">Input Data Kampus</a>
+      <a href="{{ url('/admin/college/create') }}" class="btn btn-success">Input Data Kampus</a>
       @if(count($colleges) > 0)
       
         <table style="margin-top: 10px" class="table table-bordered">
@@ -50,13 +50,14 @@
                         <img style="width: 40px; height: 40px;" src="/storage/public/logo_kampus/{{ $college->logo_kampus }}">
                     </td>
                     <td>
-                        <a href="/admin/college/{{ $college->id }}/edit" class="btn btn-primary">Edit</a> | 
-                        <a href="/admin/college/{{ $college->id }}/destroy" class="btn btn-danger">Delete</a>
+                        {{-- <a href="/admin/college/{{ $college->id }}/edit" class="btn btn-primary">Edit</a> |  --}}
+                        <a href="{{ url('/admin/college/edit/'.$college->id.'') }}" class="btn btn-primary">Edit</a> |
+                        <a href="{{ url('/admin/college/destroy/'.$college->id.'') }}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>   
             @endforeach
         </table>
-      @endif        
+      @endif       
         </div>
       </div>
     </div>

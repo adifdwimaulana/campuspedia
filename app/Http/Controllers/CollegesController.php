@@ -20,10 +20,19 @@ class CollegesController extends Controller
         return view('colleges.index', compact('colleges', 'provinces'));
     }
 
+    public function show_college($id)
+    {
+        $college = College::find($id);
+        $faculties = $college->faculties;
+
+        return view('colleges.show_college', compact('college', 'faculties'));    
+    }
+
     public function college() 
     {
         $colleges = College::orderBy('nama_kampus', 'asc')->get();
-        return view('admin.colleges.college', compact('colleges'));
+
+        return view('admin.colleges.college', compact('colleges', 'faculties'));
     }
 
     public function create_college()
@@ -134,6 +143,46 @@ class CollegesController extends Controller
 
     public function faculty()
     {
-        return view('admin.colleges.faculty');
+        $faculties = Faculty::orderBy('nama_fakultas', 'asc')->get();
+
+        return view('admin.colleges.faculty', compact('faculties'));
+    }
+
+    public function create_faculty()
+    {
+        $colleges = College::orderBy('nama_kampus', 'asc')->get();
+
+        return view('admin.colleges.create_faculty', compact('colleges'));
+    }
+
+    public function store_faculty(Request $request)
+    {
+        $this->validate($request, [
+            'nama_fakultas' => 'required',
+            'deskripsi_fakultas' => 'required',
+            'jumlah_jurusan' => 'required',
+            'nama_kampus' => 'required'
+        ]);
+
+        $faculty = new Faculty;
+        $faculty->nama_fakultas = $request->input('nama_fakultas');
+        $faculty->deskripsi_fakultas = $request->input('deskripsi_fakultas');
+        $faculty->jumlah_jurusan = $request->input('jumlah_jurusan');
+        $faculty->college_id =  $request->input('nama_kampus');
+        $faculty->save();
+
+        return redirect('/admin/faculty')->with('message', 'Fakultas '. $faculty->nama_fakultas.' berhasil ditamabahkan !');
+    }
+
+    public function edit_faculty($id)
+    {
+        $faculty = Faculty::find($id);
+        
+        return view('admin.colleges.edit_faculty', compact('faculty'));
+    }
+
+    public function update_faculty(Request $request, $id)
+    {
+
     }
 }
