@@ -46,8 +46,8 @@
                     <td>{{ $faculty->deskripsi_fakultas }}</td>
                     <td>{{ $faculty->jumlah_jurusan }}</td>
                     <td>
-                        <a href="/admin/faculty/{{ $faculty->id }}/edit" class="btn btn-primary">Edit</a> | 
-                        <a href="/admin/faculty/{{ $faculty->id }}/destroy" class="btn btn-danger">Delete</a>
+                        <a href="{{ url('/admin/faculty/edit/'.$faculty->id.'') }}" class="btn btn-primary">Edit</a> | 
+                        <a href="{{ url('/admin/faculty/destroy/'.$faculty->id.'') }}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>   
             @endforeach

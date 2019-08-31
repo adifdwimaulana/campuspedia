@@ -36,7 +36,6 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
 
-  // College Route
   Route::get('/college', 'CollegesController@college');
   Route::get('/college/create', 'CollegesController@create_college');
   Route::get('/college/{id}', 'CollegesController@show_college');
@@ -48,9 +47,9 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/faculty', 'CollegesController@faculty');
   Route::get('/faculty/create', 'CollegesController@create_faculty');
   Route::post('/faculty/store', 'CollegesController@store_faculty');
-  Route::get('/faculty/{id}/edit', 'CollegesControler@edit_faculty');
+  Route::get('/faculty/edit/{id}', 'CollegesController@edit_faculty');
   Route::put('/faculty/{id}', 'CollegesController@update_faculty');
-  Route::get('/faculty/{id}/destroy', 'CollegesController@destroy_faculty');
+  Route::get('/faculty/destroy/{id}', 'CollegesController@destroy_faculty');
 });
 
 Route::group(['prefix' => 'company'], function () {
@@ -65,17 +64,23 @@ Route::group(['prefix' => 'company'], function () {
   Route::post('/password/reset', 'CompanyAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'CompanyAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'CompanyAuth\ResetPasswordController@showResetForm');
+
+
+  Route::get('/perusahaan', 'JobsController@perusahaan');
+  Route::post('/simpan_perusahaan', 'JobsController@simpan_perusahaan');
+  Route::get('/view_all_perusahaan', 'JobsController@view_all_perusahaan');
+  Route::get('/lihat_detail_perusahaan/{id}', 'JobsController@show_perusahaan');
+  Route::get('/edit_perusahaan/{id}', 'JobsController@edit_perusahaan');
+  Route::post('/edit_perusahaan', 'JobsController@post_edit_perusahaan');
+
+  Route::get('/job', 'JobsController@job');
+  Route::get('/pekerjaan', 'JobsController@pekerjaan');
+  Route::post('/simpan_pekerjaan', 'JobsController@simpan_pekerjaan'); 
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-  Route::get('/admin/perusahaan', 'JobsController@perusahaan');
-  Route::post('/admin/simpan_perusahaan', 'JobsController@simpan_perusahaan');
-  Route::get('/admin/pekerjaan', 'JobsController@pekerjaan');
-  Route::post('/admin/simpan_pekerjaan', 'JobsController@simpan_pekerjaan');
-
 
 // College Route
   Route::get('/college', 'CollegesController@index');

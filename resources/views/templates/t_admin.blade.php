@@ -563,15 +563,34 @@
                     <span class="site-menu-title">Seleksi Online</span>
                   </a>
             </li> -->
+            <li class="site-menu-category">Karir</li>
+            <li class="site-menu-item">
+              <a href="{{URL::to('/admin/kategori')}}">
+                <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
+                <span class="site-menu-title">Kategori Karir</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a href="{{URL::to('/admin/karir')}}">
+                <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
+                <span class="site-menu-title">Karir</span>
+              </a>
+            </li>
             <li class="site-menu-category">Jobs</li>
             <li class="site-menu-item">
-              <a href="{{URL::to('/admin/perusahaan')}}">
+              <a href="{{URL::to('/company/job')}}">
+                <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
+                <span class="site-menu-title">Dashboard</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a href="{{URL::to('/company/perusahaan')}}">
                 <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
                 <span class="site-menu-title">Perusahaan</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a href="{{URL::to('/admin/pekerjaan')}}">
+              <a href="{{URL::to('/company/pekerjaan')}}">
                 <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
                 <span class="site-menu-title">Pekerjaan</span>
               </a>

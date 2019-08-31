@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Negara;
+use App\Kota;
 use App\Perusahaan;
 use App\Job;
 use App\Type_industri;
@@ -24,11 +25,16 @@ class JobsController extends Controller
 
     }
 
+    public function job()
+    {
+        return view('company.jobs.dashboard');
+    }
+    
     public function perusahaan()
     {
     	$negara = Negara::orderBy('nama_negara','asc')->get();
     	$tipe_industri = Type_industri::orderBy('nama_industri','asc')->get();
-    	return view('admin.jobs.perusahaan', compact('negara', 'tipe_industri'));
+    	return view('company.jobs.perusahaan', compact('negara', 'tipe_industri'));
     }
 
     public function simpan_perusahaan(Request $r)
@@ -59,6 +65,60 @@ class JobsController extends Controller
         return Redirect::back()->with('message','Perusahaan '.$post->nama_perusahaan.' berhasil ditambahkan');
     }
 
+    public function view_all_perusahaan()
+    {
+        $perusahaan = Perusahaan::all();
+        return view('company.jobs.perusahaan_all', compact('perusahaan'));
+    }
+
+    public function show_perusahaan($id)
+    {
+        $perusahaan = Perusahaan::find($id);
+        dd($perusahaan); return;
+    }
+
+    public function edit_perusahaan($id)
+    {
+        $perusahaan = Perusahaan::find($id);
+        $negara = Negara::orderBy('nama_negara','asc')->get();
+        $tipe_industri = Type_industri::orderBy('nama_industri','asc')->get();
+        return view('company.jobs.perusahaan_edit', compact('perusahaan','negara','tipe_industri'));
+    }
+
+    public function post_edit_perusahaan(Request $r)
+    {
+        dd($r); return;
+        $validator = Validator::make($r->all(), [
+            // 'nama_perusahaan' => 'required',
+            // 'deskripsi' => 'required',
+        ]);
+        if($validator->fails()) {
+            return Redirect::back()->withInput()->withErrors($validator->messages());
+        }
+
+        $post = perusahaan::find($r->id);
+        $post->job_title = $r->input('nama_pekerjaan');
+        $post->kota = $kota->nama_kota;
+        $post->negara = $negara->nama_negara;
+        $post->tipe_pekerjaan = $r->input('tipe_industri');
+        $post->minimal_education = $r->input('minimal_education');
+        $post->jobs_roles = $jobs_role->jobs_role;
+        $post->jobs_functions = $jobs_functions->jobs_functions;
+        $post->jobs_descriptiom = $r->input('deskripsi');
+        $post->work_experience = $r->input('work_experience');
+        $post->jumlah_loker = $r->input('jumlah_loker');
+        $post->benefit = $r->input('benefit');
+        $post->skill = $r->input('skill');
+        $post->remote= $r->input('remote');
+        $post->gaji_tampil= $r->input('gaji_tampil');
+        $post->gaji= $r->input('gaji');
+        $post->bonus_salary= $r->input('bonus_salary');
+        if ($r->file('file_attachment')) {
+            $post->file_attachment = $r->file('file_attachment')->store('file_attachment');   
+        }
+        $post->save();
+    }
+
     public function pekerjaan()
     {
     	$kota = DB::table('kotas')
@@ -73,11 +133,16 @@ class JobsController extends Controller
 	        ->orderBy('jobs_roles.jobs_role','asc')
 	        ->get();
     	$tipe_industri = Type_industri::orderBy('nama_industri','asc')->get();
-    	return view('admin.jobs.jobs', compact('kota', 'tipe_industri', 'pendidikan', 'jobs_role'));
+    	return view('company.jobs.jobs', compact('kota', 'tipe_industri', 'pendidikan', 'jobs_role'));
     }
 
     public function simpan_pekerjaan(Request $r)
     {
+    	$kota = Kota::find($r->kota);
+    	$negara = Negara::find($kota->negara_id);
+    	$jobs_role = Jobs_role::find($r->jobs_role);
+    	$jobs_functions = Jobs_function::find($jobs_role->jobs_function_id);
+
     	$validator = Validator::make($r->all(), [
             // 'nama_perusahaan' => 'required',
             // 'deskripsi' => 'required',
@@ -85,23 +150,28 @@ class JobsController extends Controller
         if($validator->fails()) {
             return Redirect::back()->withInput()->withErrors($validator->messages());
         }
-        dd($r); return;
+
         $post = new Job;
-        $post->nama_perusahaan = $r->input('nama_perusahaan');
-        $post->visi_misi = $r->input('visi_misi');
-        $post->deskripsi_perusahaan = $r->input('deskripsi');
-        $post->alamat_perusahaan = $r->input('alamat');
-        $post->negara = $r->input('negara');
-        $post->tipe_industri = $r->input('tipe_industri');
-        $post->link_website = $r->input('website');
-        $post->link_facebook = $r->input('facebook');
-        $post->link_linkedin = $r->input('LinkedIn');
-        $post->link_instagram = $r->input('instagram');
-        $post->link_twitter= $r->input('twitter');
-        if ($r->file('logo')) {
-            $post->logo_perusahaan = $r->file('logo')->store('logo');   
+        $post->job_title = $r->input('nama_pekerjaan');
+        $post->kota = $kota->nama_kota;
+        $post->negara = $negara->nama_negara;
+        $post->tipe_pekerjaan = $r->input('tipe_industri');
+        $post->minimal_education = $r->input('minimal_education');
+        $post->jobs_roles = $jobs_role->jobs_role;
+        $post->jobs_functions = $jobs_functions->jobs_functions;
+        $post->jobs_descriptiom = $r->input('deskripsi');
+        $post->work_experience = $r->input('work_experience');
+        $post->jumlah_loker = $r->input('jumlah_loker');
+        $post->benefit = $r->input('benefit');
+        $post->skill = $r->input('skill');
+        $post->remote= $r->input('remote');
+        $post->gaji_tampil= $r->input('gaji_tampil');
+        $post->gaji= $r->input('gaji');
+        $post->bonus_salary= $r->input('bonus_salary');
+        if ($r->file('file_attachment')) {
+            $post->file_attachment = $r->file('file_attachment')->store('file_attachment');   
         }
         $post->save();
-        return Redirect::back()->with('message','Perusahaan '.$post->nama_perusahaan.' berhasil ditambahkan');
+        return Redirect::back()->with('message','Lowongan Pekerjaan '.$post->job_title.' berhasil ditambahkan');
     }
 }
