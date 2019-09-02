@@ -33,10 +33,14 @@
             <div class="col-md-12">
               <!-- Example Basic Form (Form grid) -->
               <div class="example-wrap">
-                {{-- <h4 class="example-title">Basic Form (Form grid)</h4> --}}
                 <div class="example">
-                  <form action="{{url('/admin/faculty/store')}}" method="post" enctype="multipart/form-data" autocomplete="off">
+                  <form action="{{url('/admin/faculty/'.$faculty->id.'')}}" method="post" enctype="multipart/form-data" autocomplete="off">
                     {{csrf_field()}}
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <input type="hidden" name="id" id="id" autocomplete="off" required value="{{ $faculty->id }}">
+                      </div>
+                    </div>
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label for="inputBasicFirstName" class="form-control-label">Nama Fakultas</label>
@@ -83,16 +87,14 @@
   <!-- End Page -->
 @endsection
 @section('moreJS')
-{{-- <script>
-    $(document).ready(function () {
-        $("#negara").select2({
-            placeholder: "Pilih Nama Negara"
-        });
-    });
-    $(document).ready(function () {
-        $("#tipe_industri").select2({
-            placeholder: "Pilih Tipe Industri"
-        });
-    });
-</script> --}}
+<script src="{{ asset('assets/ckeditor_standard/ckeditor.js') }}"></script>
+<script>
+  var editor = document.getElementById('deskripsi_fakultas');
+  CKEDITOR.replace(editor, {
+    languague: 'en-gb',
+    allowedContent: 'true',
+    ProtectedTags: 'html|head|body'
+  });
+  // CKEDITOR.config.allowedContent = true;
+</script>
 @endsection

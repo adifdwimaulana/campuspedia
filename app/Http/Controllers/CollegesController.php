@@ -200,7 +200,7 @@ class CollegesController extends Controller
         $faculty->college_id = $request->input('nama_kampus');
         $faculty->save();
 
-        return redirect('/admin/faculty')->with('message', 'Fakultas '.$faculty->nama_fakultas.' berhasil ditambahkan !');
+        return redirect('/admin/faculty')->with('message', 'Fakultas '.$faculty->nama_fakultas.' berhasil diedit !');
     }
 
     public function destroy_faculty($id)
