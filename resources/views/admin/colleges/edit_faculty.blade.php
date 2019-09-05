@@ -61,7 +61,7 @@
                       <div class="form-group col-md-6">
                         <label for="nama_kampus" class="form-control-label">Pilih Kampus</label>
                         <select name="nama_kampus" id="nama_kampus" class="form-control" required>
-                        <option value="{{ $faculty->college_id }}" disable selected>{{ $college->nama_kampus }}</option>
+                        <option value="{{ $faculty->college_id }}" disable selected>{{ $faculty->college->nama_kampus }}</option>
                             @foreach ($colleges as $college)
                                 <option value="{{ $college->id }}">{{ $college->nama_kampus }}</option>
                             @endforeach
@@ -92,9 +92,7 @@
   var editor = document.getElementById('deskripsi_fakultas');
   CKEDITOR.replace(editor, {
     languague: 'en-gb',
-    allowedContent: 'true',
-    ProtectedTags: 'html|head|body'
   });
-  // CKEDITOR.config.allowedContent = true;
+  CKEDITOR.config.allowedContent = true;
 </script>
 @endsection

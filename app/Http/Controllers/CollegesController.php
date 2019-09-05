@@ -9,13 +9,15 @@ use App\College;
 use App\Faculty;
 use App\Major;
 use App\Province;
+use App\Akreditasi;
+use App\Tipe_college;
 
 class CollegesController extends Controller
 {
     public function index()
     {
         $colleges = College::orderBy('nama_kampus', 'asc')->paginate(6);
-        $provinces = Province::pluck('nama_provinsi');
+        $provinces = Province::all();
 
         return view('colleges.index', compact('colleges', 'provinces'));
     }
@@ -37,7 +39,11 @@ class CollegesController extends Controller
 
     public function create_college()
     {
-        return view('admin.colleges.create_college');
+        $provinces = Province::orderBy('nama_provinsi')->get();
+        $akreditasis = Akreditasi::all();
+        $tipe_colleges = Tipe_college::all();
+
+        return view('admin.colleges.create_college', compact('provinces', 'akreditasis', 'tipe_colleges'));
     }
 
     public function store_college(Request $request)
@@ -45,7 +51,11 @@ class CollegesController extends Controller
         $this->validate($request, [
             'nama_kampus' => 'required',
             'profile_kampus' => 'required',
+            'alamat_kampus' => 'required',
             'website_kampus' => 'required',
+            'tipe_kampus' => 'required',
+            'akreditasi_kampus' => 'required',
+            'province' => 'required',
             'logo_kampus' => 'image|nullable|max:1999'
         ]);
 
@@ -72,8 +82,9 @@ class CollegesController extends Controller
         $college->profile_kampus = $request->input('profile_kampus');
         $college->alamat_kampus = $request->input('alamat_kampus');
         $college->website_kampus = $request->input('website_kampus');
-        $college->tipe_kampus = $request->input('tipe_kampus');
-        $college->akreditasi_kampus = $request->input('akreditasi_kampus');
+        $college->tipe_kampus_id = $request->input('tipe_kampus');
+        $college->akreditasi_id = $request->input('akreditasi_kampus');
+        $college->province_id = $request->input('province');
         $college->logo_kampus = $filenameToStore;
         $college->save();
 
@@ -177,11 +188,9 @@ class CollegesController extends Controller
     public function edit_faculty($id)
     {
         $faculty = Faculty::find($id);
-        $colleges = College::all();
-        $college = $faculty->college;
+        $colleges = College::orderBy('nama_kampus', 'asc')->get();
         
-        // dd($college);
-        return view('admin.colleges.edit_faculty', compact('faculty', 'colleges', 'college'));
+        return view('admin.colleges.edit_faculty', compact('faculty', 'colleges'));
     }
 
     public function update_faculty(Request $request, $id)

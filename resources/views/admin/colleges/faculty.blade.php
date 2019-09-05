@@ -33,7 +33,9 @@
           <div class="table-responsive">
             <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="DataTables_Table_0_wrapper"> 
               <div class="row">
+                
                 <div class="col-sm-12">
+                    <a href="{{ url('/admin/faculty/create') }}" class="btn btn-primary" style="margin-bottom: 1.5rem;">Input Data Fakultas</a>
                   <table class="table table-hover dataTable table-striped dtr-inline collapsed" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1183px;" data-plugin="dataTable">
                     <thead>
                       <tr role="row">
@@ -58,7 +60,7 @@
                       @php $no++; @endphp
                     </td>
                     <td>{{ $faculty->nama_fakultas }}</td>
-                    <td>{{ $faculty->deskripsi_fakultas }}</td>
+                    <td>{!! $faculty->deskripsi_fakultas !!}</td>
                     <td>{{ $faculty->jumlah_jurusan }}</td>
                     <td>
                       <span>
@@ -76,36 +78,6 @@
             </div>
           </div>
         </div>
-        {{-- <div class="panel">
-            <div class="panel-body container-fluid">
-              <div class="row" style="margin: 20px">
-      <a href="/admin/faculty/create" class="btn btn-success">Input Data Fakultas</a>
-      @if(count($faculties) > 0)
-      
-        <table style="margin-top: 10px" class="table table-bordered">
-            <tr>
-                <th>Nama Fakultas</th>
-                <th>Deskripsi Fakultas</th>
-                <th>Jumlah Jurusan</th>
-                <th>Aksi</th>
-            </tr>
-            @foreach ($faculties as $faculty)
-                <tr>
-                    <td>{{ $faculty->nama_fakultas }}</td>
-                    <td>{{ $faculty->deskripsi_fakultas }}</td>
-                    <td>{{ $faculty->jumlah_jurusan }}</td>
-                    <td>
-                        <a href="{{ url('/admin/faculty/edit/'.$faculty->id.'') }}" class="btn btn-primary">Edit</a> | 
-                        <a href="{{ url('/admin/faculty/destroy/'.$faculty->id.'') }}" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>   
-            @endforeach
-        </table>
-      @endif     
-        </div>
-      </div>
-    </div> --}}
-
     </div>
   </div>
 @endsection

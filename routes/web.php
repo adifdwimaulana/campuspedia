@@ -44,7 +44,6 @@ Route::group(['prefix' => 'admin'], function () {
   // College Route
   Route::get('/college', 'CollegesController@college');
   Route::get('/college/create', 'CollegesController@create_college');
-  Route::get('/college/{id}', 'CollegesController@show_college');
   Route::post('/college/store', 'CollegesController@store_college');
   Route::get('/college/edit/{id}', 'CollegesController@edit_college');
   Route::put('/college/{id}', 'CollegesController@update_college');

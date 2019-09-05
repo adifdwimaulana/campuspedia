@@ -81,10 +81,10 @@
 										<hr>
 										<div class="bottom-card">
 											<div class="blok-1">
-												Tipe : {{ $college->tipe_kampus }}
+												Tipe : {{ $college->tipe_college->tipe_kampus }}
 											</div>
 											<div class="blok-2">
-												Akreditas : {{ $college->akreditasi_kampus }}
+												Akreditasi : {{ $college->akreditasi->akreditasi }}
 											</div>
 										</div>
 									</div>
