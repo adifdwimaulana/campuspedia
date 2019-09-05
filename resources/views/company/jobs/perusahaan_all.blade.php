@@ -4,7 +4,7 @@
   <div class="page-header">
     <h1 class="page-title">List Perusahaan</h1>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{{url('/company')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{url('/company/dashboard')}}">Home</a></li>
       {{-- <li class="breadcrumb-item"><a href="javascript:void(0)">Forms</a></li> --}}
       <li class="breadcrumb-item active">List Perusahaan</li>
     </ol>
@@ -31,9 +31,13 @@
           <h3 class="panel-title">Data Perusahaan</h3>
         </header>
         <div class="table-responsive">
-          <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="DataTables_Table_0_wrapper"> 
+          <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="DataTables_Table_0_wrapper">
             <div class="row">
               <div class="col-sm-12">
+                <div style="margin-bottom: 10px;">
+                  <a class="mb-2" href="{{url('/company/perusahaan/')}}"><button class="btn btn-primary mb-2" type="button">Input Perusahaan</button></a> 
+                </div>
+                
                 <table class="table table-hover dataTable table-striped dtr-inline collapsed" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1183px;" data-plugin="dataTable">
                   <thead>
                     <tr role="row">
@@ -67,7 +71,9 @@
                     <span>
                       <a class="mb-2" href="{{url('/company/lihat_detail_perusahaan/'.$perusahaans->id)}}"><button class="btn btn-success" type="button">Lihat</button></a>
                       <a class="mb-2" href="{{url('/company/edit_perusahaan/'.$perusahaans->id)}}"><button class="btn btn-warning" type="button">Edit</button></a>
-                      <a class="mb-2" href=""><button class="btn btn-danger" type="button">Hapus</button></a>
+                      <a class="mb-2 hapus" href="{{url('/company/hapus_perusahaan/'.$perusahaans->id)}}">
+                        <button class="btn btn-danger hapus" type="button">Hapus</button>
+                      </a> 
                     </span>
                   </td>
                 </tr>
@@ -86,7 +92,26 @@
   <!-- End Page -->
   @endsection
   @section('moreJS')
+  {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.33.1/dist/sweetalert2.all.min.js"></script>
   <script>
-    
-  </script>
+    $( ".hapus" ).click(function( event ) {
+      event.preventDefault();
+      const href = $(this).data('edit-url');
+      console.log(href);
+      Swal({
+        title: 'Apakah Anda yakin',
+        text: "melakukan pembatalan sesi ini?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, batalkan!',
+        cancelButtonText: 'Kembali',
+      }).then((result) => {
+      if (result.value) {
+        document.location.href = href;
+      }
+    })
+  });
+  </script> --}}
   @endsection

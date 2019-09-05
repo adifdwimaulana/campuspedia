@@ -2,11 +2,11 @@
 @section('content')
 <div class="page">
   <div class="page-header">
-    <h1 class="page-title">Input Pekerjaan</h1>
+    <h1 class="page-title">Dashboard</h1>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{{url('/admin')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{url('/company/dashboard')}}">Home</a></li>
       {{-- <li class="breadcrumb-item"><a href="javascript:void(0)">Forms</a></li> --}}
-      <li class="breadcrumb-item active">Input Pekerjaan</li>
+      {{-- <li class="breadcrumb-item active">Input Pekerjaan</li> --}}
     </ol>
   </div>
 
