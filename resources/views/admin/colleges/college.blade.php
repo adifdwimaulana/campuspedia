@@ -47,10 +47,9 @@
                     <td>{{ $college->alamat_kampus }}</td>
                     <td>{{ $college->website_kampus }}</td>
                     <td>
-                        <img style="width: 40px; height: 40px;" src="/storage/public/logo_kampus/{{ $college->logo_kampus }}">
+                        <img style="width: 40px; height: 40px;" src="{{ asset('/storage/public/logo_kampus/'.$college->logo_kampus.'') }}">
                     </td>
                     <td>
-                        {{-- <a href="/admin/college/{{ $college->id }}/edit" class="btn btn-primary">Edit</a> |  --}}
                         <a href="{{ url('/admin/college/edit/'.$college->id.'') }}" class="btn btn-primary">Edit</a> |
                         <a href="{{ url('/admin/college/destroy/'.$college->id.'') }}" class="btn btn-danger">Delete</a>
                     </td>

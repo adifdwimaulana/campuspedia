@@ -171,18 +171,43 @@ class CollegesController extends Controller
         $faculty->college_id =  $request->input('nama_kampus');
         $faculty->save();
 
-        return redirect('/admin/faculty')->with('message', 'Fakultas '. $faculty->nama_fakultas.' berhasil ditamabahkan !');
+        return redirect('/admin/faculty')->with('message', 'Fakultas '. $faculty->nama_fakultas.' berhasil ditambahkan !');
     }
 
     public function edit_faculty($id)
     {
         $faculty = Faculty::find($id);
+        $colleges = College::all();
+        $college = $faculty->college;
         
-        return view('admin.colleges.edit_faculty', compact('faculty'));
+        // dd($college);
+        return view('admin.colleges.edit_faculty', compact('faculty', 'colleges', 'college'));
     }
 
     public function update_faculty(Request $request, $id)
     {
+        $this->validate($request, [
+            'nama_fakultas' => 'required',
+            'deskripsi_fakultas' => 'required',
+            'jumlah_jurusan' => 'required',
+            'nama_kampus' => 'required'
+        ]);
 
+        $faculty = Faculty::find($id);
+        $faculty->nama_fakultas = $request->input('nama_fakultas');
+        $faculty->deskripsi_fakultas = $request->input('deskripsi_fakultas');
+        $faculty->jumlah_jurusan = $request->input('jumlah_jurusan');
+        $faculty->college_id = $request->input('nama_kampus');
+        $faculty->save();
+
+        return redirect('/admin/faculty')->with('message', 'Fakultas '.$faculty->nama_fakultas.' berhasil ditambahkan !');
+    }
+
+    public function destroy_faculty($id)
+    {
+        $faculty = Faculty::find($id);
+        $faculty->delete();
+
+        return redirect('/admin/faculty')->with('message', 'Fakultas '.$faculty->nama_fakultas.' berhasil ditambahkan !');
     }
 }

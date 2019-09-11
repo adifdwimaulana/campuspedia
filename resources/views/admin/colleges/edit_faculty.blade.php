@@ -46,8 +46,7 @@
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label for="deskripsi_fakultas" class="form-control-label">Deskripsi Fakultas</label>
-                        {{-- <input type="textarea" name="deskripsi_fakultas" class="form-control" placeholder="Deskripsi Fakultas" id="deksripsi_fakultas" required> --}}
-                        <textarea name="deskripsi_fakultas" id="deskripsi_fakultas" class="form-control" placeholder="Deskripsi Fakultas" required rows="10" value="{{ $faculty->deskripsi_fakultas }}"></textarea>
+                        <textarea name="deskripsi_fakultas" id="deskripsi_fakultas" class="form-control" placeholder="Deskripsi Fakultas" required rows="10" value="{{ $faculty->deskripsi_fakultas }}">{{ $faculty->deskripsi_fakultas }}</textarea>
                       </div>
                     </div>
                     <div class="row">
@@ -56,11 +55,11 @@
                         <input type="number" id="jumlah_jurusan" name="jumlah_jurusan" class="form-control" required value="{{ $faculty->jumlah_jurusan }}">
                       </div>
                       <div class="form-group col-md-6">
-                        <label for="nama_kampus" class="form-control-label">Nama Kampus</label>
+                        <label for="nama_kampus" class="form-control-label">Pilih Kampus</label>
                         <select name="nama_kampus" id="nama_kampus" class="form-control" required>
-                        <option value="{{ $faculty->college_id }}" disable selected>{{ $faculty->college->nama_kampus }}</option>
+                        <option value="{{ $faculty->college_id }}" disable selected>{{ $college->nama_kampus }}</option>
                             @foreach ($colleges as $college)
-                                <option value="{{$college->id}}">{{$college->nama_kampus}}</option>
+                                <option value="{{ $college->id }}">{{ $college->nama_kampus }}</option>
                             @endforeach
                         </select>
                       </div>
