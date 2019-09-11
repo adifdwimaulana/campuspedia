@@ -46,7 +46,6 @@
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label for="deskripsi_fakultas" class="form-control-label">Deskripsi Fakultas</label>
-                        {{-- <input type="textarea" name="deskripsi_fakultas" class="form-control" placeholder="Deskripsi Fakultas" id="deksripsi_fakultas" required> --}}
                         <textarea name="deskripsi_fakultas" id="deskripsi_fakultas" class="form-control" placeholder="Deskripsi Fakultas" required rows="10"></textarea>
                       </div>
                     </div>
@@ -84,16 +83,12 @@
   <!-- End Page -->
 @endsection
 @section('moreJS')
-{{-- <script>
-    $(document).ready(function () {
-        $("#negara").select2({
-            placeholder: "Pilih Nama Negara"
-        });
-    });
-    $(document).ready(function () {
-        $("#tipe_industri").select2({
-            placeholder: "Pilih Tipe Industri"
-        });
-    });
-</script> --}}
+<script src="{{ asset('assets/ckeditor_standard/ckeditor.js') }}"></script>
+<script>
+  var editor = document.getElementById("deskripsi_fakultas");
+  CKEDITOR.replace(editor, {
+    languague: 'en-gb'
+  });
+  CKEDITOR.config.allowedContent = true;
+</script>
 @endsection
