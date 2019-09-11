@@ -16,6 +16,7 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_perusahaan');
+            $table->integer('id_user');
             $table->string('job_title');            
             $table->string('tipe_pekerjaan', 100);
             $table->string('negara', 100);
@@ -31,7 +32,7 @@ class CreateJobsTable extends Migration
             $table->boolean('gaji_tampil')->nullable();
             $table->text('gaji')->nullable();            
             $table->text('bonus_salary')->nullable();            
-            $table->text('jobs_descriptiom')->nullable();            
+            $table->text('jobs_description')->nullable();            
             $table->string('file_attachment')->nullable();            
             $table->timestamps();
         });

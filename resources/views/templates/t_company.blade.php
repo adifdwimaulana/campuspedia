@@ -399,12 +399,12 @@
               </a>
               <ul class="site-menu-sub">
                 <li class="site-menu-item">
-                  <a class="animsition-link" href="{{URL::to('/company/job')}}">
+                  <a class="animsition-link" href="{{URL::to('/company/pekerjaan')}}">
                     <span class="site-menu-title">Input Pekerjaan</span>
                   </a>
                 </li>
                 <li class="site-menu-item">
-                  <a class="animsition-link" href="{{URL::to('/company/view_all_perusahaan')}}">
+                  <a class="animsition-link" href="{{URL::to('/company/view_all_pekerjaan')}}">
                     <span class="site-menu-title">List Pekerjaan</span>
                   </a>
                 </li>
@@ -415,7 +415,6 @@
                 </li> --}}
               </ul>
             </li>
-
           </ul>
         </div>
       </div>
