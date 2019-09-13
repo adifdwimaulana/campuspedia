@@ -10,12 +10,11 @@
 							<div class="row h-100 align-items-center">
 							<div class="col-lg-6 col-md-6">
 								<div class="hero-content">
-									<h1>Komunitas Online Mahasiswa dan Palajar</h1>
+									<h1>Komunitas Online Mahasiswa dan Pelajar</h1>
 									<p>Sumber inspirasi pelajar dan mahasiswa. Untuk kemajuan dunia pendidikan Indonesia.</p>
 								</div>
 							</div>
 							</div>
-							
 						</div>
 					</div>
 				</div>

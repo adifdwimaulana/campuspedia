@@ -15,6 +15,11 @@ class College extends Model
         return $this->hasMany('App\Faculty');
     }
 
+    public function majors()
+    {
+        return $this->hasMany('App\College');
+    }
+
     public function province()
     {
         return $this->hasOne('App\Province', 'id', 'province_id');

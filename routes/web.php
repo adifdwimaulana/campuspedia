@@ -46,7 +46,7 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/college/create', 'CollegesController@create_college');
   Route::post('/college/store', 'CollegesController@store_college');
   Route::get('/college/edit/{id}', 'CollegesController@edit_college');
-  Route::put('/college/{id}', 'CollegesController@update_college');
+  Route::post('/college/{id}', 'CollegesController@update_college');
   Route::get('/college/destroy/{id}', 'CollegesController@destroy_college');
 
   Route::get('/faculty', 'CollegesController@faculty');
@@ -55,6 +55,13 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/faculty/edit/{id}', 'CollegesController@edit_faculty');
   Route::post('/faculty/{id}', 'CollegesController@update_faculty');
   Route::get('/faculty/destroy/{id}', 'CollegesController@destroy_faculty');
+
+  Route::get('/major', 'CollegesController@major');
+  Route::get('/major/create', 'CollegesController@create_major');
+  Route::post('/major/store', 'CollegesController@store_major');
+  Route::get('/major/edit/{id}', 'CollegesController@edit_major');
+  Route::post('/major/{id}', 'CollegesController@update_major');
+  Route::get('/major/destroy/{id}', 'CollegesController@destroy_major');
 });
 
 Route::group(['prefix' => 'company'], function () {

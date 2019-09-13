@@ -94,8 +94,11 @@ class CollegesController extends Controller
     public function edit_college($id)
     {   
         $college = College::find($id);
+        $akreditasis = Akreditasi::all();
+        $tipe_colleges = Tipe_college::all();
+        $provinces = Province::all();
 
-        return view('admin.colleges.edit_college', compact('college'));
+        return view('admin.colleges.edit_college', compact('college', 'tipe_colleges', 'akreditasis', 'provinces'));
     }
 
     public function update_college(Request $request, $id)
@@ -127,8 +130,9 @@ class CollegesController extends Controller
         $college->profile_kampus = $request->input('profile_kampus');
         $college->alamat_kampus = $request->input('alamat_kampus');
         $college->website_kampus = $request->input('website_kampus');
-        $college->tipe_kampus = $request->input('tipe_kampus');
-        $college->akreditasi_kampus = $request->input('akreditasi_kampus');
+        $college->tipe_kampus_id = $request->input('tipe_kampus');
+        $college->akreditasi_id = $request->input('akreditasi_kampus');
+        $college->province_id = $request->input('province');
         if($request->hasFile('logo_kampus'))
         {
             $college->logo_kampus = $filenameToStore;
@@ -144,7 +148,7 @@ class CollegesController extends Controller
 
         if($college->logo_kampus != 'noimage.jpg')
         {
-            Storage::delete('public/logo_kampus/'.$college->logo_kampus);
+            Storage::delete('storage/public/logo_kampus/'.$college->logo_kampus);
         }
 
         $college->delete();
@@ -218,5 +222,12 @@ class CollegesController extends Controller
         $faculty->delete();
 
         return redirect('/admin/faculty')->with('message', 'Fakultas '.$faculty->nama_fakultas.' berhasil ditambahkan !');
+    }
+
+    public function major()
+    {
+        $majors = Major::orderBy('nama_jurusan', 'asc');
+
+        return view('admin.colleges.major', compact('majors'));
     }
 }
