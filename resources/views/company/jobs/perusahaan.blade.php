@@ -4,7 +4,7 @@
     <div class="page-header">
       <h1 class="page-title">Input Perusahaan</h1>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{url('/admin')}}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{url('/company/dashboard')}}">Home</a></li>
         {{-- <li class="breadcrumb-item"><a href="javascript:void(0)">Forms</a></li> --}}
          <li class="breadcrumb-item active">Input Perusahaan</li>
       </ol>
@@ -105,7 +105,7 @@
                     </div>
                     <div class="row">
                       <div class="form-group col-md-12">
-                        <label class="form-control-label font-weight-bold" for="example-file-input">Upload Logo Perusahaan</label>
+                        <label class="form-control-label font-weight-bold" for="example-file-input">Upload Logo Perusahaan <h5>format JPG/JPEG/PNG</h5></label>
                         <input type="file" id="logo" name="logo" required>
                       </div>
                     </div>

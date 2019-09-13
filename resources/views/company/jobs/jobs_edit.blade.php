@@ -2,11 +2,11 @@
 @section('content')
   <div class="page">
     <div class="page-header">
-      <h1 class="page-title">Input Pekerjaan</h1>
+      <h1 class="page-title">Edit Pekerjaan</h1>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{url('/company/dashboard')}}">Home</a></li>
         {{-- <li class="breadcrumb-item"><a href="javascript:void(0)">Forms</a></li> --}}
-         <li class="breadcrumb-item active">Input Pekerjaan</li>
+         <li class="breadcrumb-item active">Edit Pekerjaan</li>
       </ol>
     </div>
 
@@ -38,7 +38,7 @@
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Job Title</label>
-                        <input name="nama_pekerjaan" class="form-control" id="job_title" type="text" placeholder="Job Title" autocomplete="off" required>
+                        <input name="nama_pekerjaan" class="form-control" id="job_title" type="text" placeholder="Job Title" autocomplete="off" required value="{{ $perusahaan->job_title }}">
                       </div>
                     </div>
                     <div class="row">
@@ -84,24 +84,24 @@
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Job Description</label>
-                        <textarea class="form-control" placeholder="deskripsi" name="deskripsi" id="deskripsi" required></textarea>
+                        <textarea class="form-control" placeholder="deskripsi" name="deskripsi" id="deskripsi" required>{{ $perusahaan->jobs_description }}</textarea>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-control-label font-weight-bold" for="inputBasicEmail">Jumlah Loker</label>
-                      <input name="jumlah_loker" class="form-control" id="jumlah_loker" type="text" placeholder="Jumlah Loker" autocomplete="off" required>
+                      <input name="jumlah_loker" class="form-control" id="jumlah_loker" type="text" placeholder="Jumlah Loker" autocomplete="off" required value="{{ $perusahaan->jumlah_loker }}">
                     </div>
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Work Experience</label>
-                        <textarea class="form-control" placeholder="deskripsi" name="work_experience" id="work_experience" required></textarea>
+                        <textarea class="form-control" placeholder="deskripsi" name="work_experience" id="work_experience" required>{{ $perusahaan->work_experience }}</textarea>
                         {{-- <input name="work_experience" class="form-control" id="work_experience" type="text" placeholder="Work Experience" autocomplete="off" required> --}}
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Benefit</label>
-                        <textarea class="form-control" placeholder="Benefit" name="benefit" id="benefit" required></textarea>
+                        <textarea class="form-control" placeholder="Benefit" name="benefit" id="benefit" required>{{ $perusahaan->benefit }}</textarea>
                       </div>
                     </div>
                     {{-- <div class="row">
@@ -113,7 +113,7 @@
                     <div class="row">
                       <div class="form-group col-md-12">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Skill</label>
-                        <textarea class="form-control" placeholder="Skill" name="skill" id="skill" required></textarea>
+                        <textarea class="form-control" placeholder="Skill" name="skill" id="skill" required>{{ $perusahaan->skill }}</textarea>
                       </div>
                     </div>
                     <div class="row">
@@ -121,10 +121,10 @@
                         <label class="form-control-label font-weight-bold">Remote</label>
                         <div>
                           <div class="radio-custom radio-default radio-inline">
-                            <input name="remote" id="" type="radio" value="1">
+                            <input name="remote" id="" type="radio" value="1" @if( $perusahaan->remote==1 ) checked @endif>
                             <label for="ya">Ya</label>
                           </div>
-                          <div class="radio-custom radio-default radio-inline">
+                          <div class="radio-custom radio-default radio-inline" @if( $perusahaan->remote==0 ) checked @endif>
                             <input name="remote" id="" type="radio" value="0">
                             <label for="tidak">Tidak</label>
                           </div>
@@ -134,11 +134,11 @@
                         <label class="form-control-label font-weight-bold">Gaji Tampil</label>
                         <div>
                           <div class="radio-custom radio-default radio-inline">
-                            <input name="gaji_tampil" id="" type="radio" value="1">
+                            <input name="gaji_tampil" id="" type="radio" value="1" @if( $perusahaan->gaji_tampil==1 ) checked @endif>
                             <label for="ya">Ya</label>
                           </div>
                           <div class="radio-custom radio-default radio-inline">
-                            <input name="gaji_tampil" id="" type="radio" value="0">
+                            <input name="gaji_tampil" id="" type="radio" value="0" @if( $perusahaan->gaji_tampil==0 ) checked @endif>
                             <label for="tidak">Tidak</label>
                           </div>
                         </div>
@@ -148,11 +148,11 @@
                     <div class="row">
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="inputBasicFirstName">Gaji</label>
-                        <input name="gaji" class="form-control" id="gaji" type="text" placeholder="Gaji" autocomplete="off" required>
+                        <input name="gaji" class="form-control" id="gaji" type="text" placeholder="Gaji" autocomplete="off" required value="{{ $perusahaan->gaji }}">
                       </div>
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="inputBasicLastName">Bonus Salary</label>
-                        <input name="bonus_salary" class="form-control" id="bonus_salary" type="text" placeholder="Bonus Salary" autocomplete="off" required>
+                        <input name="bonus_salary" class="form-control" id="bonus_salary" type="text" placeholder="Bonus Salary" autocomplete="off" required value="{{ $perusahaan->bonus_salary }}">
                       </div>
                     </div>
                     <div class="row">

@@ -2,11 +2,11 @@
 @section('content')
 <div class="page">
   <div class="page-header">
-    <h1 class="page-title">List Perusahaan</h1>
+    <h1 class="page-title">List Pekerjaan</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/company/dashboard')}}">Home</a></li>
       {{-- <li class="breadcrumb-item"><a href="javascript:void(0)">Forms</a></li> --}}
-      <li class="breadcrumb-item active">List Perusahaan</li>
+      <li class="breadcrumb-item active">List Pekerjaan</li>
     </ol>
   </div>
 
@@ -28,24 +28,26 @@
     <div class="panel">
         <header class="panel-heading">
           <div class="panel-actions"></div>
-          <h3 class="panel-title">Data Perusahaan</h3>
+          <h3 class="panel-title">Data Pekerjaan</h3>
         </header>
         <div class="table-responsive">
           <div class="dataTables_wrapper container-fluid dt-bootstrap4" id="DataTables_Table_0_wrapper">
             <div class="row">
               <div class="col-sm-12">
                 <div style="margin-bottom: 10px;">
-                  <a class="mb-2" href="{{url('/company/perusahaan/')}}"><button class="btn btn-primary mb-2" type="button">Input Perusahaan</button></a> 
+                  <a class="mb-2" href="{{url('/company/pekerjaan/')}}"><button class="btn btn-primary mb-2" type="button">Input Pekerjaan</button></a> 
                 </div>
                 
                 <table class="table table-hover dataTable table-striped dtr-inline collapsed" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1183px;" data-plugin="dataTable">
                   <thead>
                     <tr role="row">
                       <th tabindex="0" class="sorting_asc" aria-controls="DataTables_Table_0" style="width: 202.02px;" aria-label="Name: activate to sort column descending" aria-sort="ascending" rowspan="1" colspan="1">No.</th>
-                      <th tabindex="0" class="sorting" aria-controls="DataTables_Table_0" style="width: 253.02px;" aria-label="Position: activate to sort column ascending" rowspan="1" colspan="1">Nama Perusahaan</th>
-                      <th tabindex="0" class="sorting" aria-controls="DataTables_Table_0" style="width: 223.02px;" aria-label="Office: activate to sort column ascending" rowspan="1" colspan="1">Alamat Perusahaan
+                      <th tabindex="0" class="sorting" aria-controls="DataTables_Table_0" style="width: 253.02px;" aria-label="Position: activate to sort column ascending" rowspan="1" colspan="1">Nama Pekerjaan</th>
+                      <th tabindex="0" class="sorting" aria-controls="DataTables_Table_0" style="width: 223.02px;" aria-label="Office: activate to sort column ascending" rowspan="1" colspan="1">Tipe  Pekerjaan
                       </th>
-                      <th tabindex="0" class="sorting" aria-controls="DataTables_Table_0" style="width: 223.02px;" aria-label="Office: activate to sort column ascending" rowspan="1" colspan="1">Tipe Industri
+                      <th tabindex="0" class="sorting" aria-controls="DataTables_Table_0" style="width: 223.02px;" aria-label="Office: activate to sort column ascending" rowspan="1" colspan="1">Jobs Function
+                      </th>
+                      <th tabindex="0" class="sorting" aria-controls="DataTables_Table_0" style="width: 223.02px;" aria-label="Office: activate to sort column ascending" rowspan="1" colspan="1">Jobs Role
                       </th>
                       <th tabindex="0" class="sorting" aria-controls="DataTables_Table_0" style="width: 223.02px;" aria-label="Office: activate to sort column ascending" rowspan="1" colspan="1">Aksi
                       </th>
@@ -64,14 +66,15 @@
                     {{ $no }}
                     @php $no++; @endphp
                   </td>
-                  <td>{{ $perusahaans->nama_perusahaan }}</td>
-                  <td>{{ $perusahaans->alamat_perusahaan }}</td>
-                  <td>{{ $perusahaans->tipe_industri }}</td>
+                  <td>{{ $perusahaans->job_title }}</td>
+                  <td>{{ $perusahaans->tipe_pekerjaan }}</td>
+                  <td>{{ $perusahaans->jobs_functions }}</td>
+                  <td>{{ $perusahaans->jobs_roles }}</td>
                   <td>
                     <span>
-                      <a class="mb-2" href="{{url('/company/lihat_detail_perusahaan/'.$perusahaans->id)}}"><button class="btn btn-success" type="button">Lihat</button></a>
-                      <a class="mb-2" href="{{url('/company/edit_perusahaan/'.$perusahaans->id)}}"><button class="btn btn-warning" type="button">Edit</button></a>
-                      <a class="mb-2 hapus" href="{{url('/company/hapus_perusahaan/'.$perusahaans->id)}}">
+                      <a class="mb-2" href="{{url('/company/lihat_detail_pekerjaan/'.$perusahaans->id)}}"><button class="btn btn-success" type="button">Lihat</button></a>
+                      <a class="mb-2" href="{{url('/company/edit_pekerjaan/'.$perusahaans->id)}}"><button class="btn btn-warning" type="button">Edit</button></a>  
+                      <a class="mb-2 hapus" href="{{url('/company/hapus_pekerjaan/'.$perusahaans->id)}}">
                         <button class="btn btn-danger hapus" type="button">Hapus</button>
                       </a> 
                     </span>
@@ -82,6 +85,8 @@
           </table>
         </div>
       </div>
+
+          
           </div>
         </div>
       </div>

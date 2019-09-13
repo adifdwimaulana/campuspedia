@@ -84,10 +84,18 @@ Route::group(['prefix' => 'company'], function () {
   Route::get('/lihat_detail_perusahaan/{id}', 'JobsController@show_perusahaan');
   Route::get('/edit_perusahaan/{id}', 'JobsController@edit_perusahaan');
   Route::post('/edit_perusahaan', 'JobsController@post_edit_perusahaan');
+  Route::get('/hapus_perusahaan/{id}', 'JobsController@hapus_perusahaan');
 
-  Route::get('/job', 'JobsController@job');
+
+  Route::get('/dashboard', 'JobsController@dashboard');
   Route::get('/pekerjaan', 'JobsController@pekerjaan');
-  Route::post('/simpan_pekerjaan', 'JobsController@simpan_pekerjaan'); 
+  Route::post('/simpan_pekerjaan', 'JobsController@simpan_pekerjaan');
+  Route::get('/view_all_pekerjaan', 'JobsController@view_all_pekerjaan');
+  Route::get('/lihat_detail_pekerjaan/{id}', 'JobsController@show_pekerjaan');
+  Route::get('/edit_pekerjaan/{id}', 'JobsController@edit_pekerjaan');
+  // Route::post('/edit_perusahaan', 'JobsController@post_edit_perusahaan');
+  Route::get('/hapus_pekerjaan/{id}', 'JobsController@hapus_pekerjaan');
+
 });
 
 Auth::routes();

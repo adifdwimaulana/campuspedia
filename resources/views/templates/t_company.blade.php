@@ -359,7 +359,7 @@
             <li class="site-menu-category">MASTER</li>
             
             <li class="site-menu-item">
-              <a href="{{URL::to('/company/job')}}">
+              <a href="{{URL::to('/company/dashboard')}}">
                 <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
                 <span class="site-menu-title">Dashboard</span>
               </a>
@@ -382,11 +382,11 @@
                     <span class="site-menu-title">List Perusahaan</span>
                   </a>
                 </li>
-                <li class="site-menu-item">
+                {{-- <li class="site-menu-item">
                   <a class="animsition-link" href="{{URL::to('/admin/list_group')}}">
                     <span class="site-menu-title">Group Aktif</span>
                   </a>
-                </li>
+                </li> --}}
 
               </ul>
             </li>
@@ -399,23 +399,22 @@
               </a>
               <ul class="site-menu-sub">
                 <li class="site-menu-item">
-                  <a class="animsition-link" href="{{URL::to('/company/job')}}">
+                  <a class="animsition-link" href="{{URL::to('/company/pekerjaan')}}">
                     <span class="site-menu-title">Input Pekerjaan</span>
                   </a>
                 </li>
                 <li class="site-menu-item">
-                  <a class="animsition-link" href="{{URL::to('/company/view_all_perusahaan')}}">
+                  <a class="animsition-link" href="{{URL::to('/company/view_all_pekerjaan')}}">
                     <span class="site-menu-title">List Pekerjaan</span>
                   </a>
                 </li>
-                <li class="site-menu-item">
+                {{-- <li class="site-menu-item">
                   <a class="animsition-link" href="{{URL::to('/admin/list_private')}}">
                     <span class="site-menu-title">Private Aktif</span>
                   </a>
-                </li>
+                </li> --}}
               </ul>
             </li>
-
           </ul>
         </div>
       </div>

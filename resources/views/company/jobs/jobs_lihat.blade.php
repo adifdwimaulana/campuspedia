@@ -2,11 +2,11 @@
 @section('content')
   <div class="page">
     <div class="page-header">
-      <h1 class="page-title">Input Pekerjaan</h1>
+      <h1 class="page-title">Lihat Pekerjaan</h1>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{url('/company/dashboard')}}">Home</a></li>
         {{-- <li class="breadcrumb-item"><a href="javascript:void(0)">Forms</a></li> --}}
-         <li class="breadcrumb-item active">Input Pekerjaan</li>
+         <li class="breadcrumb-item active">Lihat Pekerjaan</li>
       </ol>
     </div>
 
@@ -46,18 +46,18 @@
                         <label class="form-control-label font-weight-bold" for="negara">Kota</label>
                             <select id="kota" name="kota" class="form-control" required>
                                 <option value="" disabled selected>-- Pilih Kota--</option>
-                                @foreach($kota as $kotas)
+                                {{-- @foreach($kota as $kotas)
                                   <option value="{{$kotas->id}}">{{$kotas->nama_kota}} - {{$kotas->nama_negara}}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                       </div>
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="negara">Tipe Industri</label>
                             <select id="tipe_industri" name="tipe_industri" class="form-control" required>
                                 <option value="" disabled selected>-- Pilih Tipe Industri--</option>
-                                @foreach($tipe_industri as $tipe_industris)
+                                {{-- @foreach($tipe_industri as $tipe_industris)
                                   <option value="{{$tipe_industris->nama_industri}}">{{$tipe_industris->nama_industri}}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                       </div>
                     </div>
@@ -66,18 +66,18 @@
                         <label class="form-control-label font-weight-bold" for="negara">Minimal Education</label>
                             <select id="minimal_education" name="minimal_education" class="form-control" required>
                                 <option value="" disabled selected>-- Pilih Tipe Industri--</option>
-                                @foreach($pendidikan as $pendidikans)
+                                {{-- @foreach($pendidikan as $pendidikans)
                                   <option value="{{$pendidikans->tingkat_pendidikan}}">{{$pendidikans->tingkat_pendidikan}}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                       </div>
                       <div class="form-group col-md-6">
                         <label class="form-control-label font-weight-bold" for="negara">Job Role</label>
                             <select id="jobs_role" name="jobs_role" class="form-control" required>
                                 <option value="" disabled selected>-- Pilih Tipe Industri--</option>
-                                @foreach($jobs_role as $jobs)
+                                {{-- @foreach($jobs_role as $jobs)
                                   <option value="{{$jobs->id}}">{{$jobs->jobs_role}} - {{$jobs->jobs_functions}}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                       </div>
                     </div>

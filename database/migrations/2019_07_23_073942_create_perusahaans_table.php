@@ -15,6 +15,7 @@ class CreatePerusahaansTable extends Migration
     {
         Schema::create('perusahaans', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_user');            
             $table->string('nama_perusahaan', 100);            
             $table->string('logo_perusahaan')->nullable();            
             $table->text('visi_misi')->nullable();            
