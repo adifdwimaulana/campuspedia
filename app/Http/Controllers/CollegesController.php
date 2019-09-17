@@ -301,6 +301,6 @@ class CollegesController extends Controller
         $major = Major::find($id);
         $major->delete();
 
-        return redirect('/admin/major')->with('message', 'Jurusan '. $major->nama_jurusan.' berhasil ditambahkan!');
+        return redirect('/admin/major')->with('message', 'Jurusan '. $major->nama_jurusan.' berhasil dihapus!');
     }
 }
