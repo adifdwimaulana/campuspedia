@@ -226,8 +226,81 @@ class CollegesController extends Controller
 
     public function major()
     {
-        $majors = Major::orderBy('nama_jurusan', 'asc');
+        $majors = Major::orderBy('nama_jurusan', 'asc')->get();
 
         return view('admin.colleges.major', compact('majors'));
+    }
+
+    public function create_major()
+    {
+        $colleges = College::orderBy('nama_kampus', 'asc')->get();
+
+        return view('admin.colleges.create_major', compact('colleges', 'faculties'));
+    }
+
+    public function faculty_list(Request $request)
+    {
+        $faculties = Faculty::where('college_id', $request->college_id)->orderBy('nama_fakultas', 'asc')->get();
+
+        return response()->json($faculties);
+    }
+
+    public function store_major(Request $request)
+    {
+        $this->validate($request, [
+            'nama_jurusan' => 'required',
+            'deskripsi_jurusan' => 'required',
+            'daya_tampung' => 'required',
+            'nama_kampus' => 'required',
+            'nama_fakultas' => 'required'
+        ]);
+
+        $major = new Major;
+        $major->nama_jurusan = $request->input('nama_jurusan');
+        $major->deskripsi_jurusan = $request->input('deskripsi_jurusan');
+        $major->daya_tampung = $request->input('daya_tampung');
+        $major->faculty_id = $request->input('nama_fakultas');
+        $major->college_id = $request->input('nama_kampus');
+        $major->save();
+
+        return redirect('/admin/major')->with('message', 'Jurusan '. $major->nama_jurusan.' berhasil ditambahkan !');
+    }
+
+    public function edit_major($id)
+    {
+        $major = Major::find($id);
+        $faculties = Faculty::all();
+        $colleges = College::orderBy('nama_kampus', 'asdc')->get();
+
+        return view('admin.colleges.edit_major', compact('major', 'faculties', 'colleges'));
+    }
+
+    public function update_major(Request $request, $id)
+    {
+        $this->validate($request, [
+            'nama_jurusan' => 'required',
+            'deskripsi_jurusan' => 'required',
+            'daya_tampung' => 'required',
+            'nama_kampus' => 'required',
+            'nama_fakultas' => 'required'
+        ]);
+
+        $major = Major::find($id);
+        $major->nama_jurusan = $request->input('nama_jurusan');
+        $major->deskripsi_jurusan = $request->input('deskripsi_jurusan');
+        $major->daya_tampung = $request->input('daya_tampung');
+        $major->faculty_id = $request->input('nama_fakultas');
+        $major->college_id = $request->input('nama_kampus');
+        $major->save();
+
+        return redirect('/admin/major')->with('message', 'Jurusan '. $major->nama_jurusan.' berhasil ditambahkan !');
+    }
+
+    public function destroy_major($id)
+    {
+        $major = Major::find($id);
+        $major->delete();
+
+        return redirect('/admin/major')->with('message', 'Jurusan '. $major->nama_jurusan.' berhasil ditambahkan!');
     }
 }

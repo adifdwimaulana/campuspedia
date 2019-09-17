@@ -58,6 +58,7 @@ Route::group(['prefix' => 'admin'], function () {
 
   Route::get('/major', 'CollegesController@major');
   Route::get('/major/create', 'CollegesController@create_major');
+  Route::get('/major/faculty-list', 'CollegesController@faculty_list');
   Route::post('/major/store', 'CollegesController@store_major');
   Route::get('/major/edit/{id}', 'CollegesController@edit_major');
   Route::post('/major/{id}', 'CollegesController@update_major');
