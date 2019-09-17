@@ -55,16 +55,18 @@
 
 						<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 							<ul class="navbar-nav nav ml-auto">
-								<li class="nav-item"><a href="/college" class="nav-link">Kampus</a>
+								<li class="nav-item"><a href="{{URL::to('/college')}}" class="nav-link">Kampus</a>
 								</li>
 
-								<li class="nav-item"><a href="#" class="nav-link">Beasiswa</a>
+								<li class="nav-item"><a href="#" class="nav-link">Karir</a>
 								</li>
-
-								<li class="nav-item"><a href="#" class="nav-link">Event</a>
+								<!-- <li class="nav-item"><a href="#" class="nav-link">Event</a>
+								</li> -->
+								<li class="nav-item"><a href="#" class="nav-link">Register</a>
 								</li>
-								
-								<li class="nav-item"><a href="#" class="nav-link">Try Out</a>
+								<li class="nav-item"><a href="#" class="nav-Login">Login </a>
+								</li>
+								<li class="nav-item"><a href="#" class="nav-link">Untuk perusahaan</a>
 								</li>
 							</ul>
 						</div>
@@ -110,12 +112,12 @@
 									<li>
 										<i class="icofont-email"></i>
 										Email
-										<span>admin@crake.com</span>
+										<span>admin@campuspedia.id</span>
 									</li>
 									<li>
 										<i class="icofont-phone"></i>
 										Phone
-										<span>+123 456 7890</span>
+										<span>+628 456 1200</span>
 									</li>
 								</ul>
 							</div>
