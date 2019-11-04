@@ -69,3 +69,29 @@
   position: relative;
   padding: 20px 0px;
 }
+
+.jumbotron-fluid {
+  position: relative;
+  height: 50vh;
+}
+
+.navbar-nav {
+  /* background-color: #3175f38f; */
+  /* border-radius: 2rem; */
+}
+
+.detail-image {
+  border: 0.25rem solid #000;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 300px;
+}
+
+#search-btn {
+  display: inline;
+  margin-top: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

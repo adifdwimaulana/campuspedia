@@ -22,12 +22,40 @@ class CollegesController extends Controller
         return view('colleges.index', compact('colleges', 'provinces'));
     }
 
-    public function show_college($id)
+    public function search(Request $request)
+    {
+        $result = College::query();
+
+        $nama_kampus = $request->nama_kampus;
+        $nama_jurusan = $request->nama_jurusan;
+        $id_provinsi = $request->id_provinsi;
+
+        // dd($nama_kampus);
+
+        if(!empty($nama_kampus) && !empty($id_provinsi)) {
+            $result = College::where('nama_kampus', 'like', '%'.$nama_kampus.'%')
+                        ->where('province_id', $id_provinsi);
+        }
+
+        else if(!empty($id_provinsi)) {
+            $result = College::where('province_id', $id_provinsi);
+        }
+
+        else if(!empty($nama_jurusan)) {
+            $result = Major::where('nama_jurusan', 'like', '%'.$nama_jurusan.'%');
+        }
+
+        $result = $result->get();
+        dd($result);
+
+        // return view('colleges.search_result', compact('nama_kampus', 'nama_jurusan', 'nama_provinsi'));
+    }
+
+    public function detail_college($id)
     {
         $college = College::find($id);
-        $faculties = $college->faculties;
 
-        return view('colleges.show_college', compact('college', 'faculties'));    
+        return view('colleges.detail_college', compact('college'));
     }
 
     public function college() 

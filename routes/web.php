@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Http\Request;
+
 Route::get('/admin',[
     'as' 		=> 'admin.index',
     'uses' 		=> 'AdminController@index'
@@ -105,5 +107,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // College Route
   Route::get('/college', 'CollegesController@index');
-  Route::get('/college/{id}', 'CollegesController@show_college');
-  Route::get('/college/search', 'CollegesController@search_college');
+  Route::get('/college/{id}', 'CollegesController@detail_college');
+  Route::post('/college/search', 'CollegesController@search');

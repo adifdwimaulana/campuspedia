@@ -35,29 +35,40 @@
 		<section class="filter-area bg-light shadow rounded">
 			<div class="container-fluid">
 			<div class="section-title">
-				<h2>FILTER</h2>					
+				<h2>FILTER</h2>		
 			</div>
 			
 			{{-- Start Search Section --}}
-			{!! Form::open(['action' => 'CollegesController@search_college', 'method' => 'GET', 'enctype' => 'multipart/form-data']) !!}
-			<div class="row justify-content-center">
-				<div class="col-md-2 form-group">
-					{{ Form::text('nama_kampus', '', ['class' => 'form-control', 'placeholder' => 'Nama Kampus', 'autocomplete' => 'off']) }}
+			<form action="{{url('/college/search')}}" method="post">
+			{{csrf_field() }}
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="input-group">
+						<div class="col-md-3">
+							<label for="nama_kampus" class="form-control-label"></label>
+							<input type="text" id="nama_kampus" class="form-control" name="nama_kampus" placeholder="Nama Kampus">
+						</div>
+						<div class="col-md-3">
+							<label for="nama_jurusan" class="form-control-label"></label>
+							<input type="text" id="nama_jurusan" class="form-control" name="nama_jurusan" placeholder="Jurusan">
+						</div>
+						<div class="col-md-3">
+							<label for="id_provinsi" class="form-control-label"></label>
+							<select name="id_provinsi" id="id_provinsi" class="form-control">
+								<option value="" disable selected>--Pilih Provinsi--</option>
+								@foreach ($provinces as $province)
+									<option value="{{ $province->id }}">{{ $province->nama_provinsi }}</option>
+								@endforeach
+							</select>
+						</div>
+						<div class="col-md-3">
+							<button class="btn btn-primary" id="search-btn" type="submit">Cari</button>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-2 form-group">
-					{{ Form::select('provinsi', $provinces, null, ['class' => 'form-control', 'placeholder' => 'Provinsi']) }}
-				</div>
-				<div class="col-md-2 form-group">
-					{{ Form::text('jurusan', '', ['class' => 'form-control', 'placeholder' => 'Jurusan']) }}
-				</div>
-				<div class="col-md-2 form-group">
-					{{ Form::select('tipe_kampus', ['Negeri' => 'Negeri', 'Swasta' => 'Swasta', 'Kedinasan' => 'Kedinasan'], null, ['class' => 'form-control', 'placeholder' => 'Negeri / Swasta']) }}
-				</div>
-				<div class="col-md-2 form-group center">
-					{{ Form::submit('Cari', ['class' => 'btn btn-primary form-group']) }}
-				</div>
-				{!! Form::close() !!}
-                {{-- End Search Section  --}}
+			</div>
+			</form>
+			{{-- End Search Section  --}}
 			</div>
 		</div>
 		</section>
