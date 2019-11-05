@@ -16,4 +16,9 @@ class Major extends Model
     {
         return $this->belongsTo('App\College');
     }
+
+    public function province()
+    {
+        return $this->hasOne('App\Province', 'id', 'province_id');
+    }
 }
