@@ -29,20 +29,32 @@ class CollegesController extends Controller
         $nama_kampus = $request->nama_kampus;
         $nama_jurusan = $request->nama_jurusan;
         $id_provinsi = $request->id_provinsi;
+        $current_college = College::where('nama_kampus', 'like', '%'.$nama_kampus.'%')->get();
+        $college_id = $current_college[0]->id;
 
-        // dd($nama_kampus);
+        // dd($college_id);
 
         if(!empty($nama_kampus) && !empty($id_provinsi)) {
             $result = College::where('nama_kampus', 'like', '%'.$nama_kampus.'%')
                         ->where('province_id', $id_provinsi);
         }
 
-        else if(!empty($id_provinsi)) {
-            $result = College::where('province_id', $id_provinsi);
+        else if(!empty($nama_kampus) && !empty($nama_jurusan)) {
+            $result = Major::where('nama_jurusan', 'like', '%'.$nama_jurusan.'%')
+                        ->where('college_id', $college_id);
         }
 
         else if(!empty($nama_jurusan)) {
             $result = Major::where('nama_jurusan', 'like', '%'.$nama_jurusan.'%');
+        }
+
+        else if(!empty($nama_jurusan) && !empty($id_provinsi)) {
+            $result = Major::where('nama_jurusan', 'like', '%'.$nama_jurusan.'%')
+                        ->where('province_id', $id_provinsi);
+        }
+
+        else if(!empty($id_provinsi)) {
+            $result = College::where('province_id', $id_provinsi);
         }
 
         $result = $result->get();
@@ -289,6 +301,11 @@ class CollegesController extends Controller
         $major->daya_tampung = $request->input('daya_tampung');
         $major->faculty_id = $request->input('nama_fakultas');
         $major->college_id = $request->input('nama_kampus');
+
+        $current_college = College::where('id', $major->college_id)->get();
+        $province_id = $current_college[0]->province_id;
+
+        $major->province_id = $province_id;
         $major->save();
 
         return redirect('/admin/major')->with('message', 'Jurusan '. $major->nama_jurusan.' berhasil ditambahkan !');
