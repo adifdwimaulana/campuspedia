@@ -36,5 +36,31 @@
       </div>
     </section>
     <!-- End Detail Section -->
+    <!-- Start Side Menu Section -->
+    <section class="sidebar">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-md-2">
+            <ul class="side-menu">
+              <h4 class="menu-tag">Menu</h4>
+              <li class="nav-item"><a href="" class="nav-link text-white active">Fakultas dan Jurusan</a></li>
+              <li class="nav-item"><a href="" class="nav-link text-white">Prestasi</a></li>
+              <li class="nav-item"><a href="" class="nav-link text-white">Pendaftaran</a></li>
+              <li class="nav-item"><a href="" class="nav-link text-white">Berita</a></li>
+              <li class="nav-item"><a href="" class="nav-link text-white">Beasiswa</a></li>
+            </ul>
+          </div>
+          <div class="col-md-8">
+            <ul class="side-description">
+              <h4 class="description-tag">Profile</h4>
+              <div class="row side-description-content">
+                <p class="default-content">{!! $college->profile_kampus !!}</p>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Side Menu Section -->
 
 @endsection
