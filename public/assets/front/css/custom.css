@@ -75,11 +75,6 @@
   height: 50vh;
 }
 
-.navbar-nav {
-  /* background-color: #3175f38f; */
-  /* border-radius: 2rem; */
-}
-
 .detail-image {
   border: 0.25rem solid #000;
   display: block;
@@ -94,4 +89,47 @@
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+.masthead {
+  height: 65vh;
+  min-height: 500px;
+  background-color: #13c4a1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.college-tag {
+  margin-top: 125px;
+  background: #0a95da;
+  position: absolute;
+  padding: 0 10px;
+}
+
+.college-image {
+  background: #f7f6f0;
+  height: 25vh;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.content {
+  padding-top: 20px;
+  text-align: center;
+  display: block;
+}
+
+.top-detail {
+  font-weight: 600;
+  color: gray;
+}
+
+.logo-kampus {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin-top: -120px;
+  background-color: #fff;
+  border: 4px solid #fff;
 }

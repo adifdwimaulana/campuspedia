@@ -55,8 +55,8 @@ class CollegesController extends Controller
 
         else if(!empty($id_provinsi)) {
             $result = College::where('province_id', $id_provinsi);
-        }
-
+        } 
+        
         $result = $result->get();
         dd($result);
 
@@ -66,7 +66,7 @@ class CollegesController extends Controller
     public function detail_college($id)
     {
         $college = College::find($id);
-
+        
         return view('colleges.detail_college', compact('college'));
     }
 
