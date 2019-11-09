@@ -27,7 +27,7 @@
 
 		<link rel="stylesheet" href="{{asset('assets/front/css/custom.css')}}">
 		
-		<title>Crake - Startup Agency Landing Page</title>
+		<title>Campuspedia-Student Platform</title>
 
 		<link rel="icon" type="image/png" href="{{asset('assets/front/img/favicon.png')}}">
 		

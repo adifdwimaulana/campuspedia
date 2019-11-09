@@ -17,11 +17,8 @@
   <link rel="stylesheet" href="{{asset('assets/back/global/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/back/global/css/bootstrap-extend.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/back/global/css/style.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/back/css/site.min3f0d.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/back/css/backend.css')}}">
 
-  <!-- Skin tools (demo site only) -->
-  <link rel="stylesheet" href="{{asset('assets/back/global/css/skintools.min.css')}}">
-  <script src="{{asset('assets/back/js/sections/skintools.min.js')}}"></script>
 
   <!-- Plugins -->
   <link rel="stylesheet" href="{{asset('assets/back/global/vendor/animsition/animsition.min.css')}}">
