@@ -66,8 +66,10 @@ class CollegesController extends Controller
     public function detail_college($id)
     {
         $college = College::find($id);
-        
-        return view('colleges.detail_college', compact('college'));
+        $faculties = $college->faculties;
+
+        // dd($majors);
+        return view('colleges.detail_college', compact('college', 'faculties'));
     }
 
     public function college() 
