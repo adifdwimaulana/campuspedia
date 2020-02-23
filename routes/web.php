@@ -109,3 +109,6 @@ Route::get('/home', 'HomeController@index')->name('home');
   Route::get('/college', 'CollegesController@index');
   Route::get('/college/{id}', 'CollegesController@detail_college');
   Route::post('/college/search', 'CollegesController@search');
+
+  // College API
+  Route::get('/api/college', 'CollegesController@api_show');

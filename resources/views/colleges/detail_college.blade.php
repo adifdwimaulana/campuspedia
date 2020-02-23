@@ -54,7 +54,7 @@
             <ul class="side-description">
               <h4 class="description-tag" id="title-content">Profile</h4>
               <div class="row side-description-content" id="default-content">
-                  {!! $college->profile_kampus !!}
+                {!! $college->profile_kampus !!}
               </div>
             </ul>
           </div>
@@ -70,13 +70,13 @@
       var elementPrestasi = document.getElementById('prestasi');
       var elementPendaftaran = document.getElementById('pendaftaran');
       var elementBerita = document.getElementById('berita');
-      var elementBeasiswa = document.getElementById('Beasiswa');
-
+      var elementBeasiswa = document.getElementById('beasiswa');
       var elementAll = [elementFakultas, elementPrestasi, elementPendaftaran, elementBerita, elementBeasiswa];
       
       function changeContent(id) {
         if(id == 'fakultas') {
           titleContent.innerHTML = "FAKULTAS DAN JURUSAN";
+          // defaultContent.innerHTML = "<h1 class='myContent'>HAHAHHA</h1>";
           for(var i = 0; i < elementAll.length; i++){
             if(elementAll[i].classList.contains('active')) {
               elementAll[i].classList.remove('active');

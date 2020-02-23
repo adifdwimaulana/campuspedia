@@ -44,13 +44,13 @@ class CollegesController extends Controller
                         ->where('college_id', $college_id);
         }
 
-        else if(!empty($nama_jurusan)) {
-            $result = Major::where('nama_jurusan', 'like', '%'.$nama_jurusan.'%');
-        }
-
         else if(!empty($nama_jurusan) && !empty($id_provinsi)) {
             $result = Major::where('nama_jurusan', 'like', '%'.$nama_jurusan.'%')
                         ->where('province_id', $id_provinsi);
+        }
+
+        else if(!empty($nama_jurusan)) {
+            $result = Major::where('nama_jurusan', 'like', '%'.$nama_jurusan.'%');
         }
 
         else if(!empty($id_provinsi)) {
@@ -349,5 +349,13 @@ class CollegesController extends Controller
         $major->delete();
 
         return redirect('/admin/major')->with('message', 'Jurusan '. $major->nama_jurusan.' berhasil dihapus!');
+    }
+
+    public function api_show(){
+        $college = College::all();
+
+        // dd($college);
+
+        return $college;
     }
 }
