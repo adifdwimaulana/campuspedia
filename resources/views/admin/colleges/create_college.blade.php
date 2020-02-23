@@ -1,4 +1,4 @@
-@extends('templates.t_admin')
+@extends('templates.t_college')
 @section('content')
   <div class="page">
     <div class="page-header">
@@ -33,42 +33,75 @@
             <div class="col-md-12">
               <!-- Example Basic Form (Form grid) -->
               <div class="example-wrap">
-                {{-- <h4 class="example-title">Basic Form (Form grid)</h4> --}}
                 <div class="example">
-                  
-                  {!! Form::open(['action' => 'CollegesController@store_college', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) !!}
-                  <div class="form-group col-md-12">
-                    {{ Form::label('nama_kampus', 'Nama Kampus') }}
-                    {{ Form::text('nama_kampus', '', ['class' => 'form-control', 'placeholder' => 'Nama Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-12">
-                    {{ Form::label('profile_kampus', 'Profile Kampus') }}
-                    {{ Form::textarea('profile_kampus', '', ['class' => 'form-control', 'placeholder' => 'Profile Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-6">
-                    {{ Form::label('alamat_kampus', 'Alamat Kampus') }}
-                    {{ Form::text('alamat_kampus', '', ['class' => 'form-control', 'placeholder' => 'Alamat Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-6">
-                    {{ Form::label('website_kampus', 'Website Kampus') }}
-                    {{ Form::text('website_kampus', '', ['class' => 'form-control', 'placeholder' => 'Website Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-6">
-                    {{ Form::label('tipe_kampus', 'Tipe Kampus') }}
-                    {{ Form::select('tipe_kampus', ['Negeri' => 'Negeri', 'Swasta' => 'Swasta', 'Kedinasan' => 'Kedinasan'], null, ['class' => 'form-control', 'placeholder' => 'Tipe Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-6">
-                    {{ Form::label('akreditasi_kampus', 'Akreditasi Kampus') }}
-                    {{ Form::select('akreditasi_kampus', ['A' => 'A', 'B' => 'B', 'C' => 'C'], null, ['class' => 'form-control', 'placeholder' => 'Akreditasi Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-12">
-                    {{ Form::label('logo_kampus', 'Upload Logo Kampus') }}
-                    {{ Form::file('logo_kampus', ['class' => 'form-group']) }}
-                  </div>
-                  <div class="form-group col-md-12">
-                    {{ Form::submit('Simpan', ['class' => 'btn btn-primary form-group']) }}
-                  </div>
-                  {!! Form::close() !!}
+                    <form action="{{url('/admin/college/store')}}" method="post" enctype="multipart/form-data" autocomplete="off">
+                      {{csrf_field()}}
+                      <div class="row">
+                        <div class="form-group col-md-12">
+                          <label for="inputBasicFirstName" class="form-control-label">Nama Kampus</label>
+                          <input type="text" name="nama_kampus" class="form-control" placeholder="Nama Fakultas" id="nama_kampus" required>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-12">
+                          <label for="profile_kampus" class="form-control-label">Profile Kampus</label>
+                          <textarea name="profile_kampus" id="profile_kampus" class="form-control" placeholder="Profile Kampus" required rows="10"></textarea>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-6">
+                          <label for="alamat_kampus" class="form-control-label">Alamat Kampus</label>
+                          <input type="text" id="alamat_kampus" name="alamat_kampus" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="website_kampus" class="form-control-label">Website Kampus</label>
+                            <input type="text" id="website_kampus" name="website_kampus" class="form-control" required>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-4">
+                          <label for="tipe_kampus" class="form-control-label">Tipe Kampus</label>
+                          <select name="tipe_kampus" id="tipe_kampus" class="form-control" required>
+                            <option value="" disable selected>--Pilih Tipe Kampus--</option>
+                            <!-- Foreach Tipe Kampus -->
+                            @foreach ($tipe_colleges as $tipe_college)
+                                <option value="{{ $tipe_college->id }}">{{ $tipe_college->tipe_kampus }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="akreditasi_kampus" class="form-control-label">Akreditasi Kampus</label>
+                            <select name="akreditasi_kampus" id="akreditasi_kampus" class="form-control" required>
+                              <option value="" disable selected>--Pilih Akreditasi Kampus--</option>
+                              <!-- Foreach Akreditasi Kampus -->
+                              @foreach ($akreditasis as $akreditasi)
+                                <option value="{{ $akreditasi->id }}">{{ $akreditasi->akreditasi }}</option>
+                              @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="province" class="form-control-label">Provinsi</label>
+                            <select name="province" id="province" class="form-control" required>
+                              <option value="" disable selected>--Pilih Provinsi--</option>
+                              <!-- Foreach Provinsi Kampus -->
+                              @foreach ($provinces as $province)
+                                <option value="{{ $province->id }}">{{ $province->nama_provinsi }}</option>
+                              @endforeach
+                            </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="form-group col-md-12">
+                            <label class="form-control-label" for="logo_kampus">Upload Logo Kampus</label>
+                            <input type="file" id="logo_kampus" name="logo_kampus">
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-12">
+                          <button class="btn btn-primary" type="submit">Simpan</button>
+                        </div>
+                      </div>
+                    </form>
                 </div>
               </div>
               <!-- End Example Basic Form (Form grid) -->
@@ -82,16 +115,12 @@
   <!-- End Page -->
 @endsection
 @section('moreJS')
-{{-- <script>
-    $(document).ready(function () {
-        $("#negara").select2({
-            placeholder: "Pilih Nama Negara"
-        });
-    });
-    $(document).ready(function () {
-        $("#tipe_industri").select2({
-            placeholder: "Pilih Tipe Industri"
-        });
-    });
-</script> --}}
+<script src="{{ asset('assets/ckeditor_standard/ckeditor.js') }}"></script>
+<script>
+  var konten = document.getElementById("profile_kampus");
+  CKEDITOR.replace(konten, {
+    languague: 'en-gb'
+  });
+  CKEDITOR.config.allowedContent = true;
+</script>
 @endsection

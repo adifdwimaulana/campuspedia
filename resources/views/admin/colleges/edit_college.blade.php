@@ -1,4 +1,4 @@
-@extends('templates.t_admin')
+@extends('templates.t_college')
 @section('content')
   <div class="page">
     <div class="page-header">
@@ -33,43 +33,80 @@
             <div class="col-md-12">
               <!-- Example Basic Form (Form grid) -->
               <div class="example-wrap">
-                {{-- <h4 class="example-title">Basic Form (Form grid)</h4> --}}
                 <div class="example">
-                  
-                  {!! Form::open(['action' => ['CollegesController@update_college', $college->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                  <div class="form-group col-md-12">
-                    {{ Form::label('nama_kampus', 'Nama Kampus') }}
-                    {{ Form::text('nama_kampus', $college->nama_kampus, ['class' => 'form-control', 'placeholder' => 'Nama Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-12">
-                    {{ Form::label('profile_kampus', 'Profile Kampus') }}
-                    {{ Form::textarea('profile_kampus', $college->profile_kampus, ['class' => 'form-control', 'placeholder' => 'Profile Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-6">
-                    {{ Form::label('alamat_kampus', 'Alamat Kampus') }}
-                    {{ Form::text('alamat_kampus', $college->alamat_kampus, ['class' => 'form-control', 'placeholder' => 'Alamat Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-6">
-                    {{ Form::label('website_kampus', 'Website Kampus') }}
-                    {{ Form::text('website_kampus', $college->website_kampus, ['class' => 'form-control', 'placeholder' => 'Website Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-6">
-                    {{ Form::label('tipe_kampus', 'Tipe Kampus') }}
-                    {{ Form::select('tipe_kampus', ['Negeri' => 'Negeri', 'Swasta' => 'Swasta', 'Kedinasan' => 'Kedinasan'], $college->tipe_kampus, ['class' => 'form-control', 'placeholder' => 'Tipe Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-6">
-                    {{ Form::label('akreditasi_kampus', 'Akreditasi Kampus') }}
-                    {{ Form::select('akreditasi_kampus', ['A' => 'A', 'B' => 'B', 'C' => 'C'], $college->akreditasi_kampus, ['class' => 'form-control', 'placeholder' => 'Akreditasi Kampus']) }}
-                  </div>
-                  <div class="form-group col-md-12">
-                    {{ Form::label('logo_kampus', 'Upload Logo Kampus') }}
-                    {{ Form::file('logo_kampus', ['class' => 'form-group']) }}
-                  </div>
-                  <div class="form-group col-md-12">
-                    {{ Form::hidden('_method', 'PUT') }}
-                    {{ Form::submit('Simpan', ['class' => 'btn btn-primary']) }}
-                  </div>
-                  {!! Form::close() !!}
+                  <form action="{{url('/admin/college/'.$college->id.'')}}" method="post" enctype="multipart/form-data" autocomplete="off">
+                    {{csrf_field()}}
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <input type="hidden" name="id" id="id" autocomplete="off" required value="{{ $college->id }}">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <label for="inputBasicFirstName" class="form-control-label">Nama Kampus</label>
+                        <input type="text" name="nama_kampus" class="form-control" id="nama_kampus" required value="{{ $college->nama_kampus }}">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <label for="profile_kampus" class="form-control-label">Profile Kampus</label>
+                        <textarea name="profile_kampus" id="profile_kampus" class="form-control" placeholder="Profile Kampus" required rows="10" value="{{ $college->profile_kampus }}">{{ $college->profile_kampus }}</textarea>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label for="alamat_kampus" class="form-control-label">Alamat Kampus</label>
+                        <input type="text" id="alamat_kampus" name="alamat_kampus" class="form-control" required value="{{ $college->alamat_kampus }}">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="website_kampus" class="form-control-label">Website Kampus</label>
+                        <input type="text" id="website_kampus" name="website_kampus" class="form-control" required value="{{ $college->website_kampus }}">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-4">
+                          <label for="tipe_kampus" class="form-control-label">Tipe Kampus</label>
+                          <select name="tipe_kampus" id="tipe_kampus" class="form-control" required>
+                            <option value="{{ $college->tipe_kampus_id }}" disable selected>{{ $college->tipe_college->tipe_kampus }}</option>
+                            <!-- Foreach Tipe Kampus -->
+                            @foreach ($tipe_colleges as $tipe_college)
+                                <option value="{{ $tipe_college->id }}">{{ $tipe_college->tipe_kampus }}</option>
+                            @endforeach
+                          </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                          <label for="akreditasi_kampus" class="form-control-label">Akreditasi Kampus</label>
+                          <select name="akreditasi_kampus" id="akreditasi_kampus" class="form-control" required>
+                            <option value="{{ $college->akreditasi_id }}" disable selected>{{ $college->akreditasi->akreditasi }}</option>
+                            <!-- Foreach Akreditasi Kampus -->
+                            @foreach ($akreditasis as $akreditasi)
+                              <option value="{{ $akreditasi->id }}">{{ $akreditasi->akreditasi }}</option>
+                            @endforeach
+                          </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                          <label for="province" class="form-control-label">Provinsi</label>
+                          <select name="province" id="province" class="form-control" required>
+                            <option value="{{ $college->province_id }}" disable selected>{{ $college->province->nama_provinsi }}</option>
+                            <!-- Foreach Provinsi Kampus -->
+                            @foreach ($provinces as $province)
+                              <option value="{{ $province->id }}">{{ $province->nama_provinsi }}</option>
+                            @endforeach
+                          </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                          <label class="form-control-label" for="logo_kampus">Upload Logo Kampus</label>
+                          <input type="file" id="logo_kampus" name="logo_kampus" value="{{ $college->logo_kampus }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <button class="btn btn-primary" type="submit">Simpan</button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
               <!-- End Example Basic Form (Form grid) -->
@@ -83,16 +120,12 @@
   <!-- End Page -->
 @endsection
 @section('moreJS')
-{{-- <script>
-    $(document).ready(function () {
-        $("#negara").select2({
-            placeholder: "Pilih Nama Negara"
-        });
-    });
-    $(document).ready(function () {
-        $("#tipe_industri").select2({
-            placeholder: "Pilih Tipe Industri"
-        });
-    });
-</script> --}}
+<script src="{{ asset('assets/ckeditor_standard/ckeditor.js') }}"></script>
+<script>
+  var editor = document.getElementById("profile_kampus");
+  CKEDITOR.replace(editor, {
+    languague: 'en-gb'
+  });
+  CKEDITOR.config.allowedContent = true;
+</script>
 @endsection

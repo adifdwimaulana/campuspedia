@@ -840,7 +840,7 @@ Navbar CSS
   z-index: 999;
   -webkit-box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
-  background-color: #13c4a1 !important;
+  background-color: #0a95da !important;
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
   animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 }
