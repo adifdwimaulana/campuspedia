@@ -3,4 +3,3 @@
 *.js linguist-detectable=false
 *.html linguist-detectable=false
 *.php linguist-detectavle=true
-CHANGELOG.md export-ignore
